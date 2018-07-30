@@ -10,7 +10,6 @@ const ok_callback = function(data, info) {
   }
 };
 
-
 const error_callback = function(message, info) {
   console.log("ERROR " + message);
   console.log(info.response_raw);
@@ -18,21 +17,27 @@ const error_callback = function(message, info) {
 
 const pf = new PrintfulClient(key);
 
-
-module.exports = function(app){
+module.exports = function(app) {
   app.get("/products", (req, res) => {
-    pf.post('shipping/rates',{
+    pf.post("shipping/rates", {
       recipient: {
-          country_code: 'US',
-          state_code: 'CA'
+        country_code: "US",
+        state_code: "CA"
       },
       items: [
-         {variant_id: 1,  quantity: 1}, //Small poster
-         {variant_id: 1118, quantity: 2} //Alternative T-Shirt
+        { variant_id: 1, quantity: 1 }, //Small poster
+        { variant_id: 1118, quantity: 2 } //Alternative T-Shirt
       ]
-  }).success(ok_callback).error(error_callback);
+    })
+      .success(ok_callback)
+      .error(error_callback);
+  });
+
+  app.post("/customer-info", (req, res) => {
+    console.log(req.body)
+    res.json({status: "success"})
   })
-}
+};
 //Get information about the store
 // pf.get('store').success(ok_callback).error(error_callback);
 //Get product list
