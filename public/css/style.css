@@ -1,3 +1,31 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+/* set the root font-size. the default browswer font-size is 16px, but we want it to be 10px so that's why we are setting it to 62.5%...this makes it easy to use rems because if the base is 10px, a rem is just pixels/10. */
+html {
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow-x: hidden; }
+
+@font-face {
+  font-family: "SF UI";
+  src: url("/css/fonts/SFCompactText-Regular.otf");
+  src: url("/css/fonts/SFCompactText-Regular.otf") format("opentype"); }
+
+body {
+  font-family: "SF UI";
+  font-weight: 400;
+  font-size: 2.4rem;
+  line-height: 1.7;
+  letter-spacing: -1px; }
+
 .StripeElement {
   background-color: white;
   height: 40px;
@@ -13,3 +41,127 @@
     border-color: #fa755a; }
   .StripeElement--webkit-autofill {
     background-color: #fefde5 !important; }
+
+.admin-page {
+  padding-bottom: 100px; }
+  .admin-page--new-product {
+    display: block;
+    width: 100%;
+    height: 200px;
+    padding-top: 50px; }
+  .admin-page img {
+    width: 200px;
+    height: 200px; }
+  .admin-page textarea {
+    columns: 20;
+    height: 100px; }
+  .admin-page .current-product-fields input {
+    margin-right: 10px; }
+  .admin-page .current-product-fields .current-product {
+    padding-top: 5%; }
+    .admin-page .current-product-fields .current-product:nth-child(odd) {
+      background-color: #e2e2e2;
+      display: block; }
+    .admin-page .current-product-fields .current-product input, .admin-page .current-product-fields .current-product button {
+      margin-bottom: 3rem;
+      line-height: normal; }
+
+.header {
+  height: 6rem;
+  background-color: black;
+  position: fixed;
+  width: 100%;
+  border-bottom: 1px solid white;
+  z-index: 1; }
+  .header__block {
+    text-transform: uppercase;
+    color: white;
+    line-height: 6rem;
+    height: 100%; }
+    .header__block--shop {
+      vertical-align: middle;
+      float: left;
+      padding-left: 2rem; }
+    .header__block--title {
+      vertical-align: middle;
+      text-align: center; }
+    .header__block--cart {
+      vertical-align: middle;
+      float: right;
+      padding-right: 2rem; }
+
+.footer {
+  height: 6rem;
+  background-color: black;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid white; }
+  .footer__block {
+    text-transform: uppercase;
+    color: white;
+    line-height: 6rem;
+    height: 100%; }
+    .footer__block--work {
+      vertical-align: middle;
+      float: left;
+      padding-left: 2rem; }
+    .footer__block--info {
+      vertical-align: middle;
+      float: right;
+      padding-right: 2rem; }
+
+.products {
+  display: block;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  background-color: black; }
+  .products .col-md-4 {
+    border-right: solid 1px white;
+    border-bottom: solid 1px white; }
+  .products-no-border {
+    border-bottom: none !important; }
+  .products__container {
+    display: block;
+    text-align: center; }
+    .products__container--product {
+      max-width: 100%;
+      overflow: hidden;
+      height: 46rem; }
+    .products__container--image {
+      position: relative;
+      height: 46rem;
+      width: 100%; }
+      .products__container--image img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 30rem;
+        height: 40rem;
+        cursor: pointer; }
+    .products__container--message {
+      color: white;
+      text-align: left;
+      padding-top: 2rem;
+      width: 40rem;
+      padding-left: 8rem; }
+    .products__container--overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 30rem;
+      height: 40rem;
+      opacity: 0;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.75);
+      transition: all 0.3s ease-in-out;
+      z-index: 0;
+      pointer-events: none; }
+      .products__container--overlay-body {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%; }

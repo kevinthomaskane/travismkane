@@ -8,7 +8,6 @@ const storage = multer.diskStorage({
     cb(null, "public/uploads/")
   },
   filename: function(req, res, cb){
-    console.log(res)
     cb(null, res.originalname)
   }
 })
@@ -49,16 +48,22 @@ module.exports = function(app) {
   });
 
   app.post("/add-product", upload.single("image"), (req, res) => {
-    console.log(req.file)
     const newProduct = new Product({
       name: req.body.name,
       description: req.body.description,
       cost: req.body.cost,
-      image: req.file.path
+      image: req.file.path,
+      file_id: req.body.file_id
     });
 
     newProduct.save().then((product) => {
       console.log(product)
+    })
+  })
+
+  app.post("/delete-product/:id", (req, res) => {
+    Product.findOneAndRemove({_id : req.params.id}).then((product) => {
+      res.send("removed")
     })
   })
 };

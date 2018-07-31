@@ -12,6 +12,7 @@ login_button.addEventListener("click", () => {
     if (res.status === "success") {
       localStorage.setItem("loggedIn", true);
       newProductFields();
+      getAllProducts();
     }
   });
 });
@@ -26,14 +27,18 @@ if (localStorage.getItem("loggedIn")) {
 
 function newProductFields() {
   $(".add-new-product-fields").append(`
-  <label for="new_product_name">New Product Name</label>
-  <input type="text" id="new_product_name">
-  <label for="new_product_description">New Product Description</label>
-  <textarea id="new_product_description"></textarea>
-  <label for="new_product_cost">New Product Cost</label>
-  <input type="text" id="new_product_cost">
-  <input id="picture-upload" type="file" name="picture" className="custom-file-input"/>
-  <button id="new_product_submit">submit information</button>
+  <div class="admin-page--new-product">
+    <label for="new_product_name">New Product Name</label>
+    <input type="text" id="new_product_name">
+    <label for="new_product_description">New Product Description</label>
+    <textarea id="new_product_description"></textarea>
+    <label for="new_product_cost">New Product Cost</label>
+    <input type="text" id="new_product_cost">
+    <label for="new_product_printful_file_id">Printful File Id</label>
+    <input type="text" id="new_product_printful_file_id">
+    <input id="picture-upload" type="file" name="picture" className="custom-file-input"/>
+    <button id="new_product_submit">submit information</button>
+  </div>
 `);
 }
 
@@ -46,6 +51,7 @@ $("#new_product_submit").on("click", function() {
   fd.append("name", $("#new_product_name").val());
   fd.append("description", $("#new_product_description").val());
   fd.append("cost", $("#new_product_cost").val());
+  fd.append("file_id", $("#new_product_printful_file_id").val());
 
   $.ajax({
     url: "/add-product",
@@ -62,23 +68,27 @@ function getAllProducts() {
     if (localStorage.getItem("loggedIn")) {
       console.log(res);
       for (let i = 0; i < res.length; i++) {
-        let img_path = res[i].image.split("public")[1]
+        let img_path = res[i].image.split("public")[1];
         $(".current-product-fields").append(`
-        <label for="new_product_name">Product Name</label>
-        <input type="text" class="${res[i]._id}" value="${res[i].name}">
-        <label for="new_product_description">Product Description</label>
-        <textarea class="${res[i]._id}" value="">${
-          res[i].description
-        }</textarea>
-        <label for="new_product_cost">Product Cost</label>
-        <input type="text" class="${res[i]._id}" value="${res[i].cost}">
-        <button class="edit_product_submit" id="${
-          res[i]._id
-        }">edit information</button>
-        <img src="../${img_path}"
-        <button class="delete_product_submit" id="${
-          res[i]._id
-        }">delete product</button>
+        <div class="current-product">
+            <label for="new_product_name">Product Name</label>
+            <input type="text" class="${res[i]._id}" value="${res[i].name}">
+            <label for="new_product_description">Product Description</label>
+            <textarea class="${res[i]._id}" value="">${
+              res[i].description
+            }</textarea>
+            <label for="new_product_cost">Product Cost</label>
+            <input type="text" class="${res[i]._id}" value="${res[i].cost}">
+            <label>Printful File Id</label>
+            <input type="text" class="${res[i]._id}" value="${res[i].file_id}"/>
+            <button class="edit_product_submit" id="${
+              res[i]._id
+            }">submit edits</button>
+            <img class="current-product--image" src="../${img_path}" >
+            <button class="delete_product_submit" id="${
+              res[i]._id
+            }">delete product</button>
+        </div>
       `);
       }
     }
@@ -91,9 +101,17 @@ $(document).on("click", ".edit_product_submit", function() {
   const product_object = {
     name: array_of_inputs[0].value,
     description: array_of_inputs[1].value,
-    cost: array_of_inputs[2].value
+    cost: array_of_inputs[2].value,
+    file_id: array_of_inputs[3].value
   };
   $.post("/edit-product/" + id, product_object).then(res => {
+    window.location.reload();
+  });
+});
+
+$(document).on("click", ".delete_product_submit", function() {
+  const id = $(this).attr("id");
+  $.post("/delete-product/" + id).then(res => {
     window.location.reload();
   });
 });

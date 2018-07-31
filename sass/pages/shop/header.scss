@@ -1,0 +1,31 @@
+$color-black: black;
+$color-white: white;
+
+.header {
+  height: 6rem;
+  background-color: $color-black;
+  position: fixed;
+  width: 100%;
+  border-bottom: 1px solid $color-white;
+  z-index: 1;
+  &__block {
+    text-transform: uppercase;
+    color: $color-white;
+    line-height: 6rem;
+    height: 100%;
+    &--shop {
+      vertical-align: middle;
+      float: left;
+      padding-left: 2rem;
+    }
+    &--title {
+      vertical-align: middle;
+      text-align: center;
+    }
+    &--cart {
+      vertical-align: middle;
+      float: right;
+      padding-right: 2rem;
+    }
+  }
+}

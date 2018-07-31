@@ -16,6 +16,11 @@ const ProductSchema = new Schema({
   },
   image: {
     type: String,
+    required: true
+  },
+  file_id: {
+    type: Number,
+    required: true
   },
   date: {
     type: Date,

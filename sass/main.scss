@@ -1,1 +1,11 @@
+@import "./variables";
+@import "./base";
+@import "./typography";
+
+
+//individual components
 @import "./stripe_components";
+
+//pages
+@import "./pages/admin/admin";
+@import "./pages/shop/shop";

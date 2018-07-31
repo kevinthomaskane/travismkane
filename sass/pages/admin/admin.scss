@@ -1,0 +1,34 @@
+.admin-page {
+  padding-bottom: 100px;
+  &--new-product {
+    display: block;
+    width: 100%;
+    height: 200px;
+    padding-top: 50px;
+  }
+  img {
+    width: 200px;
+    height: 200px;
+  }
+  textarea {
+    columns: 20;
+    height: 100px;
+  }
+  .current-product-fields {
+    input {
+      margin-right: 10px;
+    }
+    .current-product{
+      padding-top: 5%;
+      &:nth-child(odd){
+        background-color: rgb(226, 226, 226);
+        display: block;
+      }
+      input, button {
+        margin-bottom: 3rem;
+        line-height: normal;
+      }
+    }
+    
+  }
+}

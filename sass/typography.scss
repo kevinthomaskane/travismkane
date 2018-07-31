@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "SF UI";
+  src: url("/css/fonts/SFCompactText-Regular.otf");
+  src: url("/css/fonts/SFCompactText-Regular.otf") format("opentype");
+}
+
+body {
+  font-family: "SF UI";
+  font-weight: 400;
+  font-size: 2.4rem;
+  line-height: 1.7;
+  letter-spacing: -1px;
+}

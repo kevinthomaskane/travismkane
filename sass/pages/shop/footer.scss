@@ -1,0 +1,24 @@
+.footer {
+  height: 6rem;
+  background-color: $color-black;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid $color-white;
+  &__block {
+    text-transform: uppercase;
+    color: $color-white;
+    line-height: 6rem;
+    height: 100%;
+    &--work {
+      vertical-align: middle;
+      float: left;
+      padding-left: 2rem;
+    }
+    &--info {
+      vertical-align: middle;
+      float: right;
+      padding-right: 2rem;
+    }
+  }
+}

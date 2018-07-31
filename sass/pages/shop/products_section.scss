@@ -1,0 +1,69 @@
+$color-black: black;
+$color-white: white;
+
+.products {
+  display: block;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  background-color: $color-black;
+  .col-md-4 {
+    border-right: solid 1px $color-white;
+    border-bottom: solid 1px $color-white;
+  }
+
+  &-no-border {
+    border-bottom: none !important;
+  }
+
+  &__container {
+    display: block;
+    text-align: center;
+    &--product {
+      max-width: 100%;
+      overflow: hidden;
+      height: 46rem;
+    }
+    &--image {
+      position: relative;
+      height: 46rem;
+      width: 100%;
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 30rem;
+        height: 40rem;
+        cursor: pointer;
+      }
+    }
+    &--message {
+      color: $color-white;
+      text-align: left;
+      padding-top: 2rem;
+      width: 40rem;
+      padding-left: 8rem;
+    }
+    &--overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 30rem;
+      height: 40rem;
+      opacity: 0;
+      color: $color-white;
+      background-color: rgba(0, 0, 0, 0.75);
+      transition: all 0.3s ease-in-out;
+      z-index: 0;
+      pointer-events: none;
+      &-body {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+      }
+    }
+  }
+}

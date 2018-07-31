@@ -2,6 +2,8 @@ const PrintfulClient = require("../printful_config/printfulclient.js");
 
 const key = process.env.PRINTFUL_API_KEY;
 
+//product type poster-enhanced-matte-paper-poster 18X24 ID: 1
+
 const ok_callback = function(data, info) {
   console.log("SUCCESS");
   console.log(data);
@@ -18,19 +20,8 @@ const error_callback = function(message, info) {
 const pf = new PrintfulClient(key);
 
 module.exports = function(app) {
-  app.get("/products", (req, res) => {
-    pf.post("shipping/rates", {
-      recipient: {
-        country_code: "US",
-        state_code: "CA"
-      },
-      items: [
-        { variant_id: 1, quantity: 1 }, //Small poster
-        { variant_id: 1118, quantity: 2 } //Alternative T-Shirt
-      ]
-    })
-      .success(ok_callback)
-      .error(error_callback);
+  app.get("/printful-create-order", (req, res) => {
+
   });
 
   app.post("/customer-info", (req, res) => {
@@ -40,6 +31,10 @@ module.exports = function(app) {
 };
 //Get information about the store
 // pf.get('store').success(ok_callback).error(error_callback);
+
+//Get file list
+// pf.get('files').success(ok_callback).error(error_callback);
+
 //Get product list
 // pf.get('products').success(ok_callback).error(error_callback);
 
@@ -65,45 +60,108 @@ module.exports = function(app) {
 //pf.delete('orders/23479').success(ok_callback).error(error_callback);
 
 //Create an order
-/*
-    pf.post('orders',
-        {
-            recipient:  {
-                name: 'John Doe',
-                address1: '19749 Dearborn St',
-                city: 'Chatsworth',
-                state_code: 'CA',
-                country_code: 'US',
-                zip: '91311'
-            },
-            items: [
-                {
-                    variant_id: 1, //Small poster
-                    name: 'Niagara Falls poster', //Display name
-                    retail_price: '19.99', //Retail price for packing slip
-                    quantity: 1,
-                    files: [
-                        {url: 'http://example.com/files/posters/poster_1.jpg'}
-                    ]
-                },
-                {
-                   variant_id: 1118,
-                   quantity: 2,
-                   name: 'Grand Canyon T-Shirt', //Display name
-                   retail_price: '29.99', //Retail price for packing slip
-                   files: [
-                        {url: 'http://example.com/files/tshirts/shirt_front.ai'}, //Front print
-                        {type: 'back', url: 'http://example.com/files/tshirts/shirt_back.ai'}, //Back print
-                        {type: 'preview', url: 'http://example.com/files/tshirts/shirt_mockup.jpg'} //Mockup image
-                   ],
-                   options: [ //Additional options
-                        {id: 'remove_labels', value: true}
-                   ]
-                }
-            ]
-         }
-    ).success(ok_callback).error(error_callback);
-*/
+
+    // pf.post('orders',
+    //     {
+    //         recipient:  {
+    //             name: 'John Doe',
+    //             address1: '19749 Dearborn St',
+    //             city: 'Chatsworth',
+    //             state_code: 'CA',
+    //             country_code: 'US',
+    //             zip: '91311'
+    //         },
+    //         items: [
+    //             {
+    //                 variant_id: 1, //Small poster
+    //                 name: 'Niagara Falls poster', //Display name
+    //                 retail_price: '19.99', //Retail price for packing slip
+    //                 quantity: 1,
+    //                 files: [
+    //                     {id: 69103565}
+    //                 ]
+    //             }
+    //         ]
+    //      }
+    // ).success(ok_callback).error(error_callback);
+
+    // response object => 
+//     SUCCESS
+// { id: 10289134,
+//   external_id: null,
+//   store: 874426,
+//   status: 'draft',
+//   error: null,
+//   shipping: 'USPS_FIRST',
+//   created: 1532979289,
+//   updated: 1532979289,
+//   recipient:
+//    { name: 'John Doe',
+//      company: null,
+//      address1: '19749 Dearborn St',
+//      address2: null,
+//      city: 'Chatsworth',
+//      state_code: 'CA',
+//      state_name: 'California',
+//      country_code: 'US',
+//      country_name: 'United States',
+//      zip: '91311',
+//      phone: null,
+//      email: null },
+//   estimated_fulfillment: null,
+//   notes: null,
+//   activities:
+//    [ { type: 'created',
+//        time: 1532979289,
+//        note: null,
+//        message: 'Order created via API' } ],
+//   items:
+//    [ { id: 6624961,
+//        external_id: null,
+//        variant_id: 1,
+//        quantity: 1,
+//        price: '13.00',
+//        retail_price: '19.99',
+//        name: 'Niagara Falls poster',
+//        product: [Object],
+//        files: [Array],
+//        options: [],
+//        sku: null,
+//        discontinued: false,
+//        out_of_stock_eu: false,
+//        out_of_stock: false } ],
+//   is_sample: false,
+//   needs_approval: false,
+//   needs_approval_eu: false,
+//   not_synced: false,
+//   has_discontinued_items: false,
+//   can_change_hold: true,
+//   eu_route_required: false,
+//   eu_routed: false,
+//   costs:
+//    { currency: 'USD',
+//      subtotal: '13.00',
+//      discount: '0.00',
+//      shipping: '3.70',
+//      digitization: '0.00',
+//      additional_fee: '0.00',
+//      fulfillment_fee: '0.00',
+//      tax: '1.90',
+//      vat: '0.00',
+//      total: '18.60' },
+//   retail_costs:
+//    { currency: 'USD',
+//      subtotal: '19.99',
+//      discount: '0.00',
+//      shipping: '3.70',
+//      tax: '0.00',
+//      vat: '0.00',
+//      total: '23.69' },
+//   shipments: [],
+//   gift: null,
+//   packing_slip: null,
+//   dashboard_url: 'https://www.printful.com/dashboard?order_id=10289134' }
+
 
 //Create an order and confirm immediately
 /*

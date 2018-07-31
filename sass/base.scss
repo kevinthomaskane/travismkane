@@ -1,0 +1,18 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+/* set the root font-size. the default browswer font-size is 16px, but we want it to be 10px so that's why we are setting it to 62.5%...this makes it easy to use rems because if the base is 10px, a rem is just pixels/10. */
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow-x: hidden;
+}
