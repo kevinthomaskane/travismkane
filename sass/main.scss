@@ -1,6 +1,7 @@
 @import "abstract/_variables";
 @import "abstract/_base";
 @import "abstract/_typography";
+@import "abstract/_utilities";
 
 //individual components
 @import "stripe_components";
@@ -9,3 +10,4 @@
 @import "pages/admin/admin";
 @import "pages/shop/shop";
 @import "pages/single_product/single_product";
+@import "pages/cart/cart";

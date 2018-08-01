@@ -8,6 +8,8 @@
   <script src="https://js.stripe.com/v3/"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
     crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+    crossorigin="anonymous">
   <link rel="stylesheet" href="/css/style.css">
   <title>travismkane</title>
 </head>
@@ -40,7 +42,7 @@
   </header>
   <section class="single__product">
     <div class="row">
-      <div class="col-md-8 single__product-no-border">
+      <div class="col-md-8 border-right">
         <div class="single__product--product">
           <div class="single__product--image">
           </div>
@@ -48,35 +50,60 @@
       </div>
       <div class="col-md-4">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-12 border-bottom">
             <div class="single__product--description">
 
             </div>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-4 single__product-no-border">
-            <div class="single__product--cart">
+          <div class="col-md-4 border-bottom no-paddings">
+            <div class="single__product--cart border-right">
               <div class="single__product--quantity">
-                QTY
-                &#160; <span class="single__product--quantity-count"> 1</span>
+                QTY &#160;
+                <span class="single__product--quantity-count"> 1</span>
               </div>
               <div class="single__product--arrows">
                 <div class="single__product--arrows-container">
-                  <span class="arrow-up">&#8743</span>
-                  <span class="arrow-down">&#8744</span>
+                  <span class="arrow-up">
+                    <img src="../uploads/up.png" />
+                  </span>
+                  <span class="arrow-down">
+                    <img src="../uploads/down.png" />
+                  </span>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-md-8 single__product-no-border">
-            <div class="single__product--add-to-cart">
+          <div class="col-md-8 no-paddings border-bottom">
+            <div class="single__product--add-to-cart no-paddings">
               Add to cart
             </div>
           </div>
         </div>
+        <div class="row">
+          <div class="col-md-4 no-paddings">
+            <div class="single__product--cart border-right">
+            </div>
+          </div>
+          <div class="col-md-8 no-paddings border-bottom">
+            <div class="single__product--empty no-paddings">
+              View cart
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 no-paddings">
+            <div class="single__product--checkout-empty border-right">
+            </div>
+          </div>
+          <div class="col-md-8 no-paddings border-bottom">
+            <div class="single__product--checkout no-paddings">
+              Check out
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
   </section>
   <footer class="footer">
     <div class="row">

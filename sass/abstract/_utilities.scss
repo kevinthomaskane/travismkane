@@ -1,0 +1,25 @@
+.no-paddings {
+  padding-left: 0;
+  padding-right: 0;
+}
+.no-border-bottom {
+  border-bottom: none;
+}
+.no-border-top {
+  border-top: none;
+}
+.border-right {
+  border-right: solid 1px $color-white;
+}
+.border-left {
+  border-left: solid 1px $color-white;
+}
+.border-top {
+  border-top: solid 1px $color-white;
+}
+.border-bottom {
+  border-bottom: solid 1px $color-white;
+}
+.fa-check {
+  font-size: 16px;
+}
