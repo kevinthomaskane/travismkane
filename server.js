@@ -43,6 +43,7 @@ require("./routes/html")(app, express, path);
 require("./routes/stripe")(app, stripe);
 require("./routes/printful")(app);
 require("./routes/admin")(app);
+require("./routes/single_product")(app);
 
 if (process.env.MONGODB_URI) {
   mongoose.connect(process.env.MONGODB_URI);

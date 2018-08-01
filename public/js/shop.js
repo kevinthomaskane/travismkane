@@ -1,6 +1,3 @@
-const items = [1, 2, 3];
-localStorage.setItem("itemIds", JSON.stringify(items));
-
 $(document).ready(function() {
   getProducts();
   // checkChartForCost();
@@ -42,7 +39,9 @@ function getProducts() {
         <div class="col-md-4 products-no-border">
           <div class="products__container--product">
             <div class="products__container--image">
-              <img src="${imageUrl}" />
+              <a href="/single-product/${products[i]._id}">
+                <img src="${imageUrl}" />
+              </a>
               <div class="products__container--overlay">
                 <div class="products__container--overlay-body">
                   <div class="products__container--title">
@@ -62,7 +61,9 @@ function getProducts() {
         <div class="col-md-4">
           <div class="products__container--product">
             <div class="products__container--image">
-              <img src="${imageUrl}" />
+              <a href="/single-product/${products[i]._id}">
+                <img src="${imageUrl}" />
+              </a>
               <div class="products__container--overlay">
                 <div class="products__container--overlay-body">
                   <div class="products__container--title">

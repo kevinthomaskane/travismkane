@@ -5,6 +5,7 @@
   bottom: 0;
   width: 100%;
   border-top: 1px solid $color-white;
+  z-index: 3;
   &__block {
     text-transform: uppercase;
     color: $color-white;
