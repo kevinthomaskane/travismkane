@@ -57,7 +57,7 @@ module.exports = function(app) {
     });
 
     newProduct.save().then((product) => {
-      console.log(product)
+      res.send("product add")
     })
   })
 

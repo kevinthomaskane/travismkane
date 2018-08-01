@@ -11,3 +11,18 @@ body {
   line-height: 1.7;
   letter-spacing: -1px;
 }
+
+a,
+a:visited,
+a:active,
+a:hover {
+  color: $color-white;
+  text-decoration: none;
+}
+
+
+@media only screen and (max-width: 768px){
+  body {
+    font-size: 1.6rem;
+  }
+}

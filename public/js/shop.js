@@ -37,9 +37,9 @@ function getCartCount() {
   if (localStorage.getItem("itemIds")) {
     let storage_array = JSON.parse(localStorage.getItem("itemIds"));
     number_in_cart = storage_array.length;
-    cart.text(`Cart (${number_in_cart})`);
+    cart.html(`<a href="/cart">CART (${number_in_cart})</a>`);
   } else {
-    cart.text(`Cart`);
+    cart.text(`CART`);
   }
 }
 
@@ -49,7 +49,7 @@ function getProducts() {
       let imageUrl = products[i].image.split("public")[1];
       if (i < products.length - 3) {
         $(".products__container").prepend(`
-        <div class="col-md-4 products-no-border">
+        <div class="col-md-4">
           <div class="products__container--product">
             <div class="products__container--image">
               <a href="/single-product/${products[i]._id}">
@@ -92,6 +92,16 @@ function getProducts() {
         </div>
       `);
       }
+    }
+    while ((products.length + 1) % 3 !== 0) {
+      console.log("heleloo")
+      $(".products__container").append(`
+        <div class="col-md-4 no-border-bottom hidden-sm hidden-xs">
+          <div class="products__container--product">
+          </div>
+        </div>
+        `);
+      products.length++;
     }
   });
 }

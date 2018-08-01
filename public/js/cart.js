@@ -25,15 +25,15 @@ async function printItems(obj) {
   for (let prop in obj) {
     await $.get("/product-info/" + prop).then(product => {
       const image = product[0].image.split("public")[1];
-      $(".cart").prepend(`
+      $(".cart__items-container").prepend(`
        <div class="cart__item border-top" data-id=${product[0]._id}>
           <div class="row">
-            <div class="col-md-3">
+            <div class="col-xs-5 col-sm-3 col-md-3 col-lg-3 col-xl-3">
               <div class="cart__image-container border-right">
               <img class="cart__image-container-image" src="${image}" />
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 hidden-xs">
               <div class="cart__description--container">
                 <div class="cart__description--container-body">
                   <div class="cart__description--title">${product[0].name}</div>
@@ -43,7 +43,7 @@ async function printItems(obj) {
                 </div>
               </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-xs-3 col-sm-2 col-md-2 col-lg-2 col-xl-2">
               <div class="cart__quantity-container border-left">
                 <div class="cart__quantity">
                   QTY &#160;
@@ -63,14 +63,14 @@ async function printItems(obj) {
                 </div>
               </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-xs-2 col-sm-3 col-md-3 col-lg-3 col-xl-2">
               <div class="cart__price border-left border-right" data-id=${
                 product[0]._id
               } >
                $${obj[prop] * 33}
               </div>
             </div>
-            <div class="col-md-1">
+            <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 col-xl-1">
               <div class="cart__trash">
                 <img data-id=${
                   product[0]._id
@@ -91,9 +91,9 @@ function getCartCount() {
   if (localStorage.getItem("itemIds")) {
     let storage_array = JSON.parse(localStorage.getItem("itemIds"));
     number_in_cart = storage_array.length;
-    cart.text(`Cart (${number_in_cart})`);
+    cart.html(`<a href="/cart">CART (${number_in_cart})</a>`);
   } else {
-    cart.text(`Cart`);
+    cart.text(`CART`);
   }
 }
 
@@ -156,6 +156,7 @@ $(document).on("click", ".cart__trash img", function() {
   getCartCount();
   delete objectWithQuantities[id];
   calculateTotal(objectWithQuantities);
-  $(`.cart__item[data-id=${id}]`).empty();
-  console.log(objectWithQuantities);
+  $(".cart__items-container").empty();
+  printItems(objectWithQuantities)
+  // $(`.cart__item[data-id=${id}]`).empty();
 });

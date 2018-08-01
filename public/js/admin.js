@@ -60,7 +60,9 @@ $("#new_product_submit").on("click", function() {
     contentType: false,
     dataType: "json",
     data: fd
-  });
+  }).then((product) => {
+    window.location.reload()
+  })
 });
 
 function getAllProducts() {

@@ -1,4 +1,4 @@
-
+@import "../../abstract/_variables";
 
 .header {
   height: 6rem;
@@ -7,23 +7,27 @@
   width: 100%;
   border-bottom: 1px solid $color-white;
   z-index: 2;
+  .col-lg-4:nth-child(2) {
+    text-align: center;
+  }
+  .col-lg-4:nth-child(3) {
+    text-align: right;
+  }
   &__block {
     text-transform: uppercase;
     color: $color-white;
     line-height: 6rem;
     height: 100%;
+    display: inline-block;
     &--shop {
       vertical-align: middle;
-      float: left;
       padding-left: 2rem;
     }
     &--title {
       vertical-align: middle;
-      text-align: center;
     }
     &--cart {
       vertical-align: middle;
-      float: right;
       padding-right: 2rem;
     }
   }

@@ -1,3 +1,5 @@
+@import "../../abstract/_variables";
+
 .single__product {
   display: block;
   padding-top: 6rem;
@@ -24,7 +26,7 @@
       left: 50%;
       transform: translate(-50%, -51%);
       width: 48rem;
-      height: 62rem;
+      height: auto;
       z-index: 0;
     }
     &-clone {
@@ -33,7 +35,7 @@
       left: 50%;
       transform: translate(-50%, -51%);
       width: 48rem;
-      height: 62rem;
+      height: auto;
       backface-visibility: hidden;
       z-index: 2;
     }
@@ -42,9 +44,15 @@
   
 }
 
-@media only screen and (max-width: 990px) {
+@media only screen and (max-width: 992px) {
   .single__product {
     height: auto;
+    &--image{
+      min-height: 50rem;
+      img {
+        width: 30rem;
+      }
+    } 
   }
 }
 
