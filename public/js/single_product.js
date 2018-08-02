@@ -60,7 +60,7 @@ function increaseCart() {
     number_in_cart = storage_array.length;
     cart.html(`<a href="/cart">CART (${number_in_cart})</a>`);
   } else {
-    cart.text(`CART`);
+    cart.html(`<a href="/cart">CART</a>`);
   }
 }
 
@@ -72,7 +72,7 @@ function getCartCount() {
     number_in_cart = storage_array.length;
     cart.html(`<a href="/cart">CART (${number_in_cart})</a>`);
   } else {
-    cart.text(`CART`);
+    cart.html(`<a href="/cart">CART</a>`);
   }
 }
 
@@ -87,6 +87,10 @@ function checkItemInCart() {
         `<i class="fas fa-check"></i> Added to cart`
       );
       showCartOptions();
+    } else {
+      $(".single__product--add-to-cart").html(
+        `<i class="fas fa-cart-plus"></i> Add to cart`
+      );
     }
   }
 }

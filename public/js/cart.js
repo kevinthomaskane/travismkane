@@ -1,5 +1,4 @@
 let items_in_cart;
-let array_with_info = [];
 let objectWithQuantities = {};
 
 if (localStorage.getItem("itemIds")) {
@@ -28,12 +27,12 @@ async function printItems(obj) {
       $(".cart__items-container").prepend(`
        <div class="cart__item border-top" data-id=${product[0]._id}>
           <div class="row">
-            <div class="col-xs-5 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-3">
               <div class="cart__image-container border-right">
               <img class="cart__image-container-image" src="${image}" />
               </div>
             </div>
-            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 hidden-xs">
+            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-3">
               <div class="cart__description--container">
                 <div class="cart__description--container-body">
                   <div class="cart__description--title">${product[0].name}</div>
@@ -43,13 +42,13 @@ async function printItems(obj) {
                 </div>
               </div>
             </div>
-            <div class="col-xs-3 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+            <div class="col-xs-6 col-sm-2 col-md-2 col-lg-2 col-xl-2">
               <div class="cart__quantity-container border-left">
                 <div class="cart__quantity">
                   QTY &#160;
                   <span class="cart__quantity-count" id=${product[0]._id}>${
-                    obj[prop]
-                    }</span>
+        obj[prop]
+      }</span>
                 </div>
                 <div class="single__product--arrows">
                   <div class="single__product--arrows-container">
@@ -63,7 +62,7 @@ async function printItems(obj) {
                 </div>
               </div>
             </div>
-            <div class="col-xs-2 col-sm-3 col-md-3 col-lg-3 col-xl-2">
+            <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3 col-xl-2">
               <div class="cart__price border-left border-right" data-id=${
                 product[0]._id
               } >
@@ -88,12 +87,18 @@ async function printItems(obj) {
 function getCartCount() {
   let number_in_cart;
   const cart = $(".header__block--cart");
-  if (localStorage.getItem("itemIds")) {
+  const nothing_in_cart = $(".nothing-in-cart")[0];
+  const cart_section = $(".cart")[0];
+  if (localStorage.getItem("itemIds").length > 2) {
     let storage_array = JSON.parse(localStorage.getItem("itemIds"));
     number_in_cart = storage_array.length;
     cart.html(`<a href="/cart">CART (${number_in_cart})</a>`);
+    nothing_in_cart.style = "display: none;"
+    cart.style = "display: block;"
   } else {
-    cart.text(`CART`);
+    cart.html(`<a href="/cart">CART</a>`);
+    nothing_in_cart.style = "display: block;";
+    cart_section.style = "display: none;";
   }
 }
 
@@ -115,6 +120,16 @@ function checkDuplicates(arr) {
     }
   }
   return obj;
+}
+
+function showDropdown(id){
+  const dropdown = $(".remove__item-dropdown")[0];
+  dropdown.style = "position: relative; animation: dropdown 4s;"
+}
+
+function resetDropdown(){
+  const dropdown = $(".remove__item-dropdown")[0];
+  dropdown.style = "display: none;"
 }
 
 $(document).on("click", ".arrow-up", function() {
@@ -147,16 +162,19 @@ $(document).on("click", ".arrow-down", function() {
 
 $(document).on("click", ".cart__trash img", function() {
   const id = $(this).attr("data-id");
-  const local_storage_array =  JSON.parse(localStorage.getItem("itemIds"));
-  let newArray = local_storage_array.filter((elem) => {
-    return elem !== id 
+  const local_storage_array = JSON.parse(localStorage.getItem("itemIds"));
+  let newArray = local_storage_array.filter(elem => {
+    return elem !== id;
   });
-  console.log(newArray)
   localStorage.setItem("itemIds", JSON.stringify(newArray));
-  getCartCount();
-  delete objectWithQuantities[id];
-  calculateTotal(objectWithQuantities);
-  $(".cart__items-container").empty();
-  printItems(objectWithQuantities)
-  // $(`.cart__item[data-id=${id}]`).empty();
+  showDropdown();
+  setTimeout(() => {
+    resetDropdown();
+    getCartCount();
+    delete objectWithQuantities[id];
+    calculateTotal(objectWithQuantities);
+    $(".cart__items-container").empty();
+    printItems(objectWithQuantities);
+  }, 4000)
+  
 });

@@ -39,7 +39,7 @@ function getCartCount() {
     number_in_cart = storage_array.length;
     cart.html(`<a href="/cart">CART (${number_in_cart})</a>`);
   } else {
-    cart.text(`CART`);
+    cart.html(`<a href="/cart">CART</a>`);
   }
 }
 
@@ -93,10 +93,10 @@ function getProducts() {
       `);
       }
     }
-    while ((products.length + 1) % 3 !== 0) {
+    while ((products.length) % 3 !== 0) {
       console.log("heleloo")
       $(".products__container").append(`
-        <div class="col-md-4 no-border-bottom hidden-sm hidden-xs">
+        <div class="col-md-4 border-bottom hidden-sm hidden-xs">
           <div class="products__container--product">
           </div>
         </div>

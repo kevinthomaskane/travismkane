@@ -3,7 +3,6 @@
 .products {
   display: block;
   padding-top: 6rem;
-  padding-bottom: 6rem;
   background-color: $color-black;
   .col-md-4 {
     border-right: solid 1px $color-white;
@@ -64,5 +63,18 @@
         width: 100%;
       }
     }
+  }
+}
+
+.body__footer {
+  height: 16rem;
+  line-height: 10rem;
+  vertical-align: middle;
+  background-color: $color-black;
+  color: $color-white;
+  padding-bottom: 6rem;
+  text-align: center;
+  &--message {
+    text-decoration: underline;
   }
 }
