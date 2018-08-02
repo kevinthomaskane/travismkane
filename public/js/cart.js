@@ -47,8 +47,8 @@ async function printItems(obj) {
                 <div class="cart__quantity">
                   QTY &#160;
                   <span class="cart__quantity-count" id=${product[0]._id}>${
-        obj[prop]
-      }</span>
+                      obj[prop]
+                    }</span>  
                 </div>
                 <div class="single__product--arrows">
                   <div class="single__product--arrows-container">
@@ -62,14 +62,14 @@ async function printItems(obj) {
                 </div>
               </div>
             </div>
-            <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3 col-xl-2">
+            <div class="col-xs-3 col-sm-4 col-md-3 col-lg-3 col-xl-2">
               <div class="cart__price border-left border-right" data-id=${
                 product[0]._id
               } >
                $${obj[prop] * 33}
               </div>
             </div>
-            <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+            <div class="col-xs-3 col-sm-1 col-md-1 col-lg-1 col-xl-1">
               <div class="cart__trash">
                 <img data-id=${
                   product[0]._id
