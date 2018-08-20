@@ -1,7 +1,6 @@
 $(document).ready(function() {
   getProducts();
   getCartCount();
-  // checkChartForCost();
   $("#button-pay").on("click", function() {
     const amount = $(this).text();
     const item_in_cart = localStorage.getItem("itemId");
@@ -23,12 +22,6 @@ function calculateCostInCart(arr) {
     });
   }
   return total_cost_in_cart;
-}
-
-function checkChartForCost() {
-  const items_in_cart = JSON.parse(localStorage.getItem("itemIds"));
-  const total_cost_in_cart = calculateCostInCart(items_in_cart);
-  $("#button-pay").text(total_cost_in_cart);
 }
 
 function getCartCount() {

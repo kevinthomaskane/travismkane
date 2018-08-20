@@ -89,7 +89,7 @@ function getCartCount() {
   const cart = $(".header__block--cart");
   const nothing_in_cart = $(".nothing-in-cart")[0];
   const cart_section = $(".cart")[0];
-  if (localStorage.getItem("itemIds").length > 2) {
+  if (localStorage.getItem("itemIds") && localStorage.getItem("itemIds") !== "[]") {
     let storage_array = JSON.parse(localStorage.getItem("itemIds"));
     number_in_cart = storage_array.length;
     cart.html(`<a href="/cart">CART (${number_in_cart})</a>`);
@@ -168,6 +168,16 @@ $(document).on("click", ".cart__trash img", function() {
   });
   localStorage.setItem("itemIds", JSON.stringify(newArray));
   showDropdown();
+  if (localStorage.getItem("itemIds")) {
+    let array = [];
+    let storage_array = JSON.parse(localStorage.getItem("itemIds"));
+    for (let i = 0; i < storage_array.length; i++) {
+      array.push(storage_array[i]);
+    }
+    items_in_cart = array;
+  } else {
+    items_in_cart = [];
+  }
   setTimeout(() => {
     resetDropdown();
     getCartCount();

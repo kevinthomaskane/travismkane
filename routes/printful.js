@@ -20,14 +20,12 @@ const error_callback = function(message, info) {
 const pf = new PrintfulClient(key);
 
 module.exports = function(app) {
-  app.get("/printful-create-order", (req, res) => {
-
-  });
+  app.post("/printful-create-order", (req, res) => {});
 
   app.post("/customer-info", (req, res) => {
-    console.log(req.body)
-    res.json({status: "success"})
-  })
+    console.log(req.body);
+    res.json({ status: "success" });
+  });
 };
 //Get information about the store
 // pf.get('store').success(ok_callback).error(error_callback);
@@ -61,31 +59,31 @@ module.exports = function(app) {
 
 //Create an order
 
-    // pf.post('orders',
-    //     {
-    //         recipient:  {
-    //             name: 'John Doe',
-    //             address1: '19749 Dearborn St',
-    //             city: 'Chatsworth',
-    //             state_code: 'CA',
-    //             country_code: 'US',
-    //             zip: '91311'
-    //         },
-    //         items: [
-    //             {
-    //                 variant_id: 1, //Small poster
-    //                 name: 'Niagara Falls poster', //Display name
-    //                 retail_price: '19.99', //Retail price for packing slip
-    //                 quantity: 1,
-    //                 files: [
-    //                     {id: 69103565}
-    //                 ]
-    //             }
-    //         ]
-    //      }
-    // ).success(ok_callback).error(error_callback);
+// pf.post('orders',
+//     {
+//         recipient:  {
+//             name: 'John Doe',
+//             address1: '19749 Dearborn St',
+//             city: 'Chatsworth',
+//             state_code: 'CA',
+//             country_code: 'US',
+//             zip: '91311'
+//         },
+//         items: [
+//             {
+//                 variant_id: 1, //Small poster
+//                 name: 'Niagara Falls poster', //Display name
+//                 retail_price: '19.99', //Retail price for packing slip
+//                 quantity: 1,
+//                 files: [
+//                     {id: 69103565}
+//                 ]
+//             }
+//         ]
+//      }
+// ).success(ok_callback).error(error_callback);
 
-    // response object => 
+// response object =>
 //     SUCCESS
 // { id: 10289134,
 //   external_id: null,
@@ -161,7 +159,6 @@ module.exports = function(app) {
 //   gift: null,
 //   packing_slip: null,
 //   dashboard_url: 'https://www.printful.com/dashboard?order_id=10289134' }
-
 
 //Create an order and confirm immediately
 /*
