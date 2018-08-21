@@ -1,0 +1,75 @@
+.section {
+  &__checkout {
+    padding-top: 8rem;
+    padding-left: 2rem;
+    background-color: black;
+    color: white;
+    padding-bottom: 4rem;
+  
+    label {
+      display: block;
+      color: white;
+    }
+  
+    input {
+      width: 100%;
+      background-color: black;
+      border: none;
+      outline: solid 1px white;
+    }
+  }
+
+  &__payment {
+    border-top: solid 1px white;
+    padding-top: 4rem;
+    padding-left: 2rem;
+    background-color: black;
+    color: white;
+    height: 60rem;
+
+    .row > div > div {
+      text-align: center;
+      height: 6rem;
+    }
+
+    .row:nth-child(2) > div {
+      border-top: solid 1px white;
+      border-right: solid 1px white;
+    }
+
+    .row:nth-child(3) > div {
+      border-top: solid 1px white;
+    }
+
+    .row:last-child > div {
+      border-bottom: solid 1px white;
+      border-top: solid 1px white;
+    }
+
+    form {
+      .StripeElement {
+        border-radius: 0;
+        box-shadow: none;
+        background-color: black;
+        outline: solid 1px white;
+        height: 40px;
+        width: 66.66%;
+        margin-bottom: 4rem;
+      }
+    }
+
+    button {
+      color: white;
+      background-color: black;
+      border: none;
+    }
+  }
+}
+
+
+
+// @media (max-width: 768px){
+//   .row > div {
+//     padding-right: 0;
+//   }
+// }

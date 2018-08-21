@@ -628,3 +628,49 @@ a:hover {
     margin-bottom: -1rem; }
     .info__contact--container p:nth-child(2) {
       margin-bottom: 2rem; }
+
+.section__checkout {
+  padding-top: 8rem;
+  padding-left: 2rem;
+  background-color: black;
+  color: white;
+  padding-bottom: 4rem; }
+  .section__checkout label {
+    display: block;
+    color: white; }
+  .section__checkout input {
+    width: 100%;
+    background-color: black;
+    border: none;
+    outline: solid 1px white; }
+
+.section__payment {
+  border-top: solid 1px white;
+  padding-top: 4rem;
+  padding-left: 2rem;
+  background-color: black;
+  color: white;
+  height: 60rem; }
+  .section__payment .row > div > div {
+    text-align: center;
+    height: 6rem; }
+  .section__payment .row:nth-child(2) > div {
+    border-top: solid 1px white;
+    border-right: solid 1px white; }
+  .section__payment .row:nth-child(3) > div {
+    border-top: solid 1px white; }
+  .section__payment .row:last-child > div {
+    border-bottom: solid 1px white;
+    border-top: solid 1px white; }
+  .section__payment form .StripeElement {
+    border-radius: 0;
+    box-shadow: none;
+    background-color: black;
+    outline: solid 1px white;
+    height: 40px;
+    width: 66.66%;
+    margin-bottom: 4rem; }
+  .section__payment button {
+    color: white;
+    background-color: black;
+    border: none; }

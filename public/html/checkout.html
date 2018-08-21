@@ -1,46 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/style.css">
   <script src="https://js.stripe.com/v3/"></script>
-  <title>Document</title>
+  <title>travismkane</title>
 </head>
-<body>
-    <form>
-        <label for="name">Your name</label>
-        <input type="text" id="name" placeholder="your full name" required>
-        <label for="address1">Street address</label>
-        <input type="text" id="address1" placeholder="your street address" required>
-        <label for="address2">Apartment number</label>
-        <input type="text" id="address2" placeholder="apt #">
-        <label for="city">City</label>
-        <input type="text" id="city" placeholder="city">
-        <label for="state">State</label>
-        <input type="text" id="state" placeholder="state">
-        <label for="zipcode">Zipcode</label>
-        <input type="text" id="zipcode" placeholder="zipcode">
-      </form>
-    
-      <form method="post" action="/charge" id="payment-form">
-        <div class="form-row">
-          <label for="card-element">
-            Credit or debit card
-          </label>
-          <div id="card-element">
-            <!-- A Stripe Element will be inserted here. -->
-          </div>
-    
-          <!-- Used to display form errors. -->
-          <div id="card-errors" role="alert"></div>
-        </div>
-    
-        <button type="submit">Submit Payment</button>
-      </form>
 
-      <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+<body>
+  <header class="header">
+    <div class="row">
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+        <div class="header__block">
+          <div class="header__block--shop">
+            <a href="/">&#8611 Shop</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+        <div class="header__block">
+          <div class="header__block--title">
+            Travis Kane
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-4 col-sm-4  col-md-4 col-lg-4 col-xl-4">
+        <div class="header__block">
+          <div class="header__block--cart">
+            <a href="/cart">cart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section class="section__checkout">
+    <div class="section__checkout--shipping-container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="setion__checkout--shipping-container-header">
+            SHIPPING ADDRESS
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+          <label for="name">Full Name *</label>
+          <input type="text" id="name" required>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+          <label for="zipcode">Postal Code *</label>
+          <input type="text" id="zipcode">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 hidden-xs hidden-sm hidden-md">&nbsp;</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+          <label for="name">Address Line 1 *</label>
+          <input type="text" id="address1" required>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+          <label for="zipcode">City *</label>
+          <input type="text" id="city" required>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 hidden-xs hidden-sm hidden-md">&nbsp;</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+          <label for="address1">Address Line 2 (optional) *</label>
+          <input type="text" id="address2" required>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+          <label for="zipcode">State *</label>
+          <input type="text" id="state" required>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 hidden-xs hidden-sm hidden-md">&nbsp;</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+          <label for="name">Country *</label>
+          <input type="text" id="country" required>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 hidden-xs hidden-sm hidden-md">&nbsp;
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 hidden-xs hidden-sm hidden-md">&nbsp;</div>
+      </div>
+    </div>
+  </section>
+  <section class="section__payment">
+    <div class="section__payment--title">
+      PAYMENT INFO
+    </div>
+    <form method="post" action="/charge" id="payment-form">
+      <div class="form-row">
+        <label for="card-element">
+          Credit or debit card
+        </label>
+        <div id="card-element">
+          <!-- A Stripe Element will be inserted here. -->
+        </div>
+
+        <!-- Used to display form errors. -->
+        <div id="card-errors" role="alert"></div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <div class="section__payment--total-box">
+              Total
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <div class="section__payment--total-value">
+
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section__payment--button">
+              <button type="submit">Submit Payment</button>
+          </div>
+        </div>
+      </div>
+      
+    </form>
+  </section>
+  <footer class="footer">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="footer__block">
+          <div class="footer__block--work">
+            Work
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="footer__block">
+          <div class="footer__block--info">
+            Info
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
   <script src="../js/stripe.js"></script>
 </body>
+
 </html>

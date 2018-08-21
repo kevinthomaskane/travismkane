@@ -1,11 +1,22 @@
 
 
 // initialize stripe with scripts in index.html
+const item_ids_in_cart = JSON.parse(localStorage.getItem("itemIds"));
+const total_value = calculateTotal(item_ids_in_cart);
+$(".section__payment--total-value").text(`$${total_value}`)
+
+function calculateTotal(arr){
+  let total = 0;
+  for (let i = 0; i < arr.length; i++){
+    total += 33
+  }
+  return total
+}
 const stripe = Stripe("pk_test_n6OWTMc1mV6eJqiuhGEv4ypN");
 const elements = stripe.elements();
 const style = {
   base: {
-    color: "#32325d",
+    color: "white",
     lineHeight: "18px",
     fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
     fontSmoothing: "antialiased",
