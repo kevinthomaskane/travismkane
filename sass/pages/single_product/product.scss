@@ -56,6 +56,12 @@
   }
 }
 
+@media only screen and (max-width: 415px){
+  .single__product {
+    padding-bottom: 20rem;
+  }
+}
+
 @keyframes imageSlide {
   0% {
     opacity: 1;

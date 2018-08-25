@@ -89,7 +89,7 @@ function checkItemInCart() {
       showCartOptions();
     } else {
       $(".single__product--add-to-cart").html(
-        `<i class="fas fa-cart-plus"></i> Add to cart`
+        `<i class="fas fa-shopping-cart"></i> Add to cart`
       );
     }
   }

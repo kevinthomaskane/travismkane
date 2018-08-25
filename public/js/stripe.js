@@ -1,16 +1,16 @@
-
-
 // initialize stripe with scripts in index.html
 const item_ids_in_cart = JSON.parse(localStorage.getItem("itemIds"));
+let printful_file_ids = [];
+let printful_order_id;
 const total_value = calculateTotal(item_ids_in_cart);
-$(".section__payment--total-value").text(`$${total_value}`)
+$(".section__payment--total-value").text(`$${total_value}`);
 
-function calculateTotal(arr){
+function calculateTotal(arr) {
   let total = 0;
-  for (let i = 0; i < arr.length; i++){
-    total += 33
+  for (let i = 0; i < arr.length; i++) {
+    total += 33;
   }
-  return total
+  return total;
 }
 const stripe = Stripe("pk_test_n6OWTMc1mV6eJqiuhGEv4ypN");
 const elements = stripe.elements();
@@ -43,11 +43,31 @@ card.addEventListener("change", function(event) {
 });
 
 const form = document.getElementById("payment-form");
+
+function calculateTotalCost(arr) {
+  return parseInt(arr.length) * 3300;
+}
+
+async function retrieve_printful_ids(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    await $.get("/product-info/" + arr[i]).then(product => {
+      printful_file_ids.push({
+        variant_id: 1,
+        name: product[0].name,
+        retail_price: "33",
+        quanity: 1,
+        files: [{ id: product[0].file_id }]
+      });
+    });
+  }
+}
+
+retrieve_printful_ids(item_ids_in_cart);
 form.addEventListener("submit", function(event) {
+  let valid = true;
   event.preventDefault();
   stripe.createToken(card).then(function(result) {
     if (result.error) {
-      // Inform the user if there was an error.
       let errorElement = document.getElementById("card-errors");
       errorElement.textContent = result.error.message;
     } else {
@@ -59,18 +79,28 @@ form.addEventListener("submit", function(event) {
       const customer_zipcode = $("#zipcode").val();
       const customer_order_object = {
         name: customer_name,
-        address: customer_address1 + customer_address2,
+        address: customer_address1 + " " + customer_address2,
         city: customer_city,
         state: customer_state,
         zipcode: customer_zipcode,
-        items: []
+        items: printful_file_ids
       };
-      $.post("/customer-info", customer_order_object).then(res => {
-        console.log(res)
-        if (res.status === "success") {
-          stripeTokenHandler(result.token);
+
+      for (let prop in customer_order_object) {
+        if (customer_order_object[prop].length < 1) {
+          valid = false;
+          alert("Please fill out all fields");
+          break;
         }
-      });
+      }
+      if (valid) {
+        $.post("/printful-create-order", customer_order_object).then(res => {
+          if (res.id) {
+            printful_order_id = res.id;
+            stripeTokenHandler(result.token);
+          }
+        });
+      }
     }
   });
 });
@@ -81,8 +111,30 @@ function stripeTokenHandler(token) {
   hiddenInput.setAttribute("type", "hidden");
   hiddenInput.setAttribute("name", "stripeToken");
   hiddenInput.setAttribute("value", token.id);
+
+  var totalAmount = document.createElement("input");
+  totalAmount.setAttribute("type", "hidden");
+  totalAmount.setAttribute("name", "totalAmount");
+  totalAmount.setAttribute("value", calculateTotalCost(item_ids_in_cart));
   form.appendChild(hiddenInput);
-  form.submit();
+  form.appendChild(totalAmount);
+
+  var formData = JSON.stringify({
+    stripeToken: token.id,
+    totalAmount: totalAmount.value
+  });
+
+  $.ajax({
+    type: "POST",
+    url: "/charge",
+    data: formData,
+    success: function() {
+      $.post("/printful-confirm-order/" + printful_order_id).then(order => {
+        console.log(order);
+      });
+    },
+    dataType: "json",
+    contentType: "application/json"
+  });
+  // form.submit();
 }
-
-

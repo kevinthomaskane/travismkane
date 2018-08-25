@@ -10,6 +10,7 @@ const ok_callback = function(data, info) {
   if (info.total_items) {
     console.log("Total items available: " + info.total_items);
   }
+  res.json(info);
 };
 
 const error_callback = function(message, info) {
@@ -20,11 +21,31 @@ const error_callback = function(message, info) {
 const pf = new PrintfulClient(key);
 
 module.exports = function(app) {
-  app.post("/printful-create-order", (req, res) => {});
+  app.post("/printful-create-order", (req, res) => {
+    pf.post("orders", {
+      recipient: {
+        name: req.body.name,
+        address1: req.body.address,
+        city: req.body.city,
+        state_code: req.body.state,
+        country_code: "US",
+        zip: req.body.zipcode
+      },
+      items: req.body.items
+    })
+      .success(order => {
+        res.json(order);
+      })
+      .error(error_callback);
+  });
 
-  app.post("/customer-info", (req, res) => {
-    console.log(req.body);
-    res.json({ status: "success" });
+  app.post("/printful-confirm-order/:id", (req, res) => {
+    console.log("req.body in order confirm route", req.body);
+    pf.post(`orders/${req.params.id}/confirm`)
+      .success(success => {
+        res.json({ status: success });
+      })
+      .error(error_callback);
   });
 };
 //Get information about the store

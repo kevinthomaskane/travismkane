@@ -5,17 +5,18 @@
     background-color: black;
     color: white;
     padding-bottom: 4rem;
-  
-    label {
-      display: block;
-      color: white;
-    }
-  
+
     input {
       width: 100%;
       background-color: black;
       border: none;
       outline: solid 1px white;
+    }
+
+    label {
+      display: block;
+      color: white;
+      font-weight: unset;
     }
   }
 
@@ -27,9 +28,16 @@
     color: white;
     height: 60rem;
 
+    label {
+      display: block;
+      color: white;
+      font-weight: unset;
+    }
+
     .row > div > div {
       text-align: center;
       height: 6rem;
+      line-height: 6rem;
     }
 
     .row:nth-child(2) > div {
@@ -66,10 +74,18 @@
   }
 }
 
+@media (max-width: 768px) {
+  .section {
+    &__checkout {
+      padding-right: 2rem;
+    }
 
-
-// @media (max-width: 768px){
-//   .row > div {
-//     padding-right: 0;
-//   }
-// }
+    &__payment {
+      form {
+        .StripeElement {
+          width: 95%;
+        }
+      }
+    }
+  }
+}

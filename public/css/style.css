@@ -1,18 +1,21 @@
+/* set the root font-size. the default browswer font-size is 16px, but we want it to be 10px so that's why we are setting it to 62.5%...this makes it easy to use rems because if the base is 10px, a rem is just pixels/10. */
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0; }
+
+body {
+  max-width: 100%;
+  overflow-x: hidden; }
+
 *,
 *::after,
 *::before {
   margin: 0;
   padding: 0;
   box-sizing: inherit; }
-
-/* set the root font-size. the default browswer font-size is 16px, but we want it to be 10px so that's why we are setting it to 62.5%...this makes it easy to use rems because if the base is 10px, a rem is just pixels/10. */
-html {
-  font-size: 62.5%; }
-
-body {
-  box-sizing: border-box;
-  max-width: 100%;
-  overflow-x: hidden; }
 
 @font-face {
   font-family: "SF UI";
@@ -35,7 +38,7 @@ a:hover {
 
 @media only screen and (max-width: 768px) {
   body {
-    font-size: 1.8rem; } }
+    font-size: 1.6rem; } }
 
 .no-paddings {
   padding-left: 0;
@@ -130,6 +133,11 @@ a:hover {
     .header__block--cart {
       vertical-align: middle;
       padding-right: 2rem; }
+
+@media only screen and (max-width: 468px) {
+  .header .col-lg-4:nth-child(2) {
+    padding-right: 0;
+    padding-left: 0; } }
 
 .footer {
   height: 6rem;
@@ -304,7 +312,13 @@ a:hover {
     text-align: center;
     margin-bottom: 5%; }
     .single__product--description-title {
-      margin-top: 0; } }
+      margin-top: 0; }
+  .single__product--arrows {
+    left: 60%; }
+  .single__product--quantity {
+    left: 45%; }
+  .single__product--add-to-cart {
+    margin-right: 20px; } }
 
 .single__product {
   display: block;
@@ -348,6 +362,10 @@ a:hover {
       min-height: 50rem; }
       .single__product--image img {
         width: 30rem; } }
+
+@media only screen and (max-width: 415px) {
+  .single__product {
+    padding-bottom: 20rem; } }
 
 @keyframes imageSlide {
   0% {
@@ -541,11 +559,11 @@ a:hover {
     .cart__description--container-body {
       position: absolute;
       top: 3rem; }
+  .cart .border-bottom-mobile {
+    border-bottom: solid 1px white; }
   .cart div.cart__item:not(:first-child) .cart__image-container {
     border-bottom: solid 1px white;
     border-top: solid 1px white; }
-  .cart div.cart__item:first-child .cart__description--container {
-    border-bottom: none; }
   .cart div.cart__item .row div:nth-child(3) {
     border-right: solid 1px white; }
   .cart div.cart__item .row div:nth-child(4) > div:first-child {
@@ -572,8 +590,25 @@ a:hover {
   .cart__price {
     height: 8rem; } }
 
+@media only screen and (max-width: 415px) {
+  .cart .single__product--arrows-container {
+    margin-left: 3rem; }
+  .cart__price, .cart__trash {
+    padding-top: 2.5rem; }
+  .cart__trash img {
+    margin-bottom: 5px;
+    margin-right: 15%; }
+  .cart__total {
+    border-top: none; }
+  .cart__item:last-child {
+    border-top: none; }
+  .cart__item:nth-last-child(2) {
+    border-top: none; }
+  .cart__description--container {
+    height: 14rem; } }
+
 .info__container {
-  min-height: 100vh;
+  height: 100vh;
   background-image: url(../uploads/bg.png);
   background-size: cover; }
   .info__container .footer {
@@ -581,6 +616,10 @@ a:hover {
     border-top: 1px solid black !important; }
     .info__container .footer__block {
       color: black; }
+      .info__container .footer__block--info {
+        color: black !important; }
+        .info__container .footer__block--info a {
+          color: inherit; }
 
 .info__header {
   line-height: 6rem;
@@ -629,20 +668,46 @@ a:hover {
     .info__contact--container p:nth-child(2) {
       margin-bottom: 2rem; }
 
+.info__social--container-main a {
+  color: black;
+  text-decoration: underline; }
+
+.info__email--container-main a {
+  color: black;
+  text-decoration: underline; }
+
+@media only screen and (max-width: 430px) {
+  .info__container .info__body {
+    margin-right: 2rem; }
+    .info__container .info__body * {
+      border-right: none !important; }
+    .info__container .info__body .info__bio--container {
+      height: unset; }
+  .info__list--container {
+    height: unset; }
+  .info__contact--container {
+    height: unset; }
+  .info__container {
+    height: 105vh;
+    max-height: 105vh;
+    overflow: hidden;
+    width: 100%; } }
+
 .section__checkout {
   padding-top: 8rem;
   padding-left: 2rem;
   background-color: black;
   color: white;
   padding-bottom: 4rem; }
-  .section__checkout label {
-    display: block;
-    color: white; }
   .section__checkout input {
     width: 100%;
     background-color: black;
     border: none;
     outline: solid 1px white; }
+  .section__checkout label {
+    display: block;
+    color: white;
+    font-weight: unset; }
 
 .section__payment {
   border-top: solid 1px white;
@@ -651,9 +716,14 @@ a:hover {
   background-color: black;
   color: white;
   height: 60rem; }
+  .section__payment label {
+    display: block;
+    color: white;
+    font-weight: unset; }
   .section__payment .row > div > div {
     text-align: center;
-    height: 6rem; }
+    height: 6rem;
+    line-height: 6rem; }
   .section__payment .row:nth-child(2) > div {
     border-top: solid 1px white;
     border-right: solid 1px white; }
@@ -674,3 +744,9 @@ a:hover {
     color: white;
     background-color: black;
     border: none; }
+
+@media (max-width: 768px) {
+  .section__checkout {
+    padding-right: 2rem; }
+  .section__payment form .StripeElement {
+    width: 95%; } }

@@ -92,11 +92,11 @@ function getCartCount() {
   if (localStorage.getItem("itemIds") && localStorage.getItem("itemIds") !== "[]") {
     let storage_array = JSON.parse(localStorage.getItem("itemIds"));
     number_in_cart = storage_array.length;
-    cart.html(`<a href="/cart">CART (${number_in_cart})</a>`);
+    cart.html(`<a href="/cart">&#8618;CART (${number_in_cart})</a>`);
     nothing_in_cart.style = "display: none;"
     cart.style = "display: block;"
   } else {
-    cart.html(`<a href="/cart">CART</a>`);
+    cart.html(`<a href="/cart">&#8618;CART</a>`);
     nothing_in_cart.style = "display: block;";
     cart_section.style = "display: none;";
   }
