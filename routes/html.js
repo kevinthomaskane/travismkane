@@ -22,4 +22,8 @@ module.exports = function(app, express, path) {
   app.get("/checkout", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/html/checkout.html"));
   });
+
+  app.get("/complete", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/html/thankyou.html"));
+  });
 };

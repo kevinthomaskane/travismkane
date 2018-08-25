@@ -68,7 +68,6 @@ $("#new_product_submit").on("click", function() {
 function getAllProducts() {
   $.get("/all_products").then(res => {
     if (localStorage.getItem("loggedIn")) {
-      console.log(res);
       for (let i = 0; i < res.length; i++) {
         let img_path = res[i].image.split("public")[1];
         $(".current-product-fields").append(`

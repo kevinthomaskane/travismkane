@@ -130,7 +130,7 @@ function stripeTokenHandler(token) {
     data: formData,
     success: function() {
       $.post("/printful-confirm-order/" + printful_order_id).then(order => {
-        console.log(order);
+        window.location.href = "/complete";
       });
     },
     dataType: "json",
