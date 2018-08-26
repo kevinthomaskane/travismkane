@@ -8,7 +8,6 @@ module.exports = function(app, stripe) {
         source: req.body.stripeToken
       })
       .then(charge => {
-        console.log("charge", charge);
         res.json(charge);
       })
       .catch(err => {

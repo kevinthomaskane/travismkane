@@ -235,6 +235,7 @@
     &__description {
       &--container {
         padding-left: 3.5rem;
+        padding-right: 3.5rem;
         border-bottom: solid 1px $color-white;
         &-body {
           position: absolute;
@@ -318,6 +319,9 @@
     }
     &__item:nth-last-child(2) {
       border-top: none;
+    }
+    &__item:first-child .row .col-xs-12:nth-child(2) {
+      border-top: solid 1px white;
     }
     &__description--container {
       height: 14rem;

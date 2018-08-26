@@ -2,6 +2,7 @@ let current_product = [];
 let quantity = parseInt($(".single__product--quantity-count").text());
 let items_in_cart;
 let added_to_cart = false;
+const screen_width = $(window).width();
 
 if (localStorage.getItem("itemIds")) {
   let array = [];
@@ -129,6 +130,8 @@ $(".single__product--add-to-cart").on("click", function() {
     items_in_cart.push(window.location.href.split("single-product/")[1]);
   }
   localStorage.setItem("itemIds", JSON.stringify(items_in_cart));
-  imageToCart();
-  resetImage();
+  if (screen_width > 1100) {
+    imageToCart();
+    resetImage();
+  }
 });

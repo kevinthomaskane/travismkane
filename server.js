@@ -12,6 +12,8 @@ dotenv.config({
 const keyPublishable = process.env.PUBLISHABLE_KEY;
 const keySecret = process.env.SECRET_KEY;
 const printfulKey = process.env.PRINTFUL_API_KEY;
+const username = process.env.USERNAME;
+const password = process.env.PASSWORD;
 const path = require("path");
 const express = require("express");
 const mongoose = require("mongoose");
@@ -19,7 +21,6 @@ const app = express();
 const stripe = require("stripe")(keySecret);
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 3000;
-
 
 app.use(
   bodyParser.urlencoded({
@@ -42,7 +43,7 @@ mongoose
 require("./routes/html")(app, express, path);
 require("./routes/stripe")(app, stripe);
 require("./routes/printful")(app);
-require("./routes/admin")(app);
+require("./routes/admin")(app, username, password);
 require("./routes/single_product")(app);
 
 if (process.env.MONGODB_URI) {

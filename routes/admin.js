@@ -15,17 +15,11 @@ const upload = multer({ storage: storage });
 
 app.use(multer({dest:'./public/uploads/'}).any());
 
-module.exports = function(app) {
+module.exports = function(app, username, password) {
   app.post("/admin-login", (req, res) => {
-    console.log(req.body);
-    Admin.findOne({
-      username: req.body.username,
-      password: req.body.password
-    })
-      .then(admin => {
-        res.json({ status: "success" });
-      })
-      .catch(err => res.json(err));
+    if (req.body.username === username && req.body.password === password){
+      res.json({ status: "success" });
+    }
   });
 
   app.get("/all_products", (req, res) => {

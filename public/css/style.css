@@ -233,7 +233,8 @@ a:hover {
 
 .single__product--description {
   min-height: 17rem;
-  padding-left: 0; }
+  padding-left: 0;
+  padding-right: 2rem; }
   .single__product--description-title {
     margin-top: 6%; }
 
@@ -318,15 +319,27 @@ a:hover {
   .single__product--quantity {
     left: 45%; }
   .single__product--add-to-cart {
-    margin-right: 20px; } }
+    padding-right: 20px; } }
+
+@media only screen and (max-width: 435px) {
+  .single__product div.single__product--checkout {
+    border-bottom: solid 1px white !important; }
+  .single__product--description {
+    border-top: solid 1px white;
+    padding-top: 7%;
+    margin-bottom: 7%;
+    padding-left: 3rem;
+    padding-right: 3rem; } }
 
 .single__product {
   display: block;
   padding-top: 6rem;
   padding-bottom: 6rem;
   background-color: black;
-  height: 77rem;
+  height: 100vh;
   color: white; }
+  .single__product .row:first-child {
+    border-bottom: solid 1px white; }
   .single__product-no-border {
     border-bottom: none !important; }
   .single__product--image {
@@ -357,11 +370,13 @@ a:hover {
 
 @media only screen and (max-width: 992px) {
   .single__product {
-    height: auto; }
+    height: 100vh; }
     .single__product--image {
       min-height: 50rem; }
       .single__product--image img {
-        width: 30rem; } }
+        width: 30rem; }
+    .single__product--arrows-container {
+      margin-left: 5rem; } }
 
 @media only screen and (max-width: 415px) {
   .single__product {
@@ -555,6 +570,7 @@ a:hover {
       border-left: none !important; }
   .cart__description--container {
     padding-left: 3.5rem;
+    padding-right: 3.5rem;
     border-bottom: solid 1px white; }
     .cart__description--container-body {
       position: absolute;
@@ -604,6 +620,8 @@ a:hover {
     border-top: none; }
   .cart__item:nth-last-child(2) {
     border-top: none; }
+  .cart__item:first-child .row .col-xs-12:nth-child(2) {
+    border-top: solid 1px white; }
   .cart__description--container {
     height: 14rem; } }
 
@@ -642,8 +660,7 @@ a:hover {
   .info__body .border-right {
     border-right: solid 1px black !important; }
   .info__body .info__bio--container {
-    height: 750px;
-    max-height: 750px; }
+    height: 100vh; }
   .info__body .info__bio--first {
     padding-top: 2rem;
     margin-bottom: 15px;
@@ -654,7 +671,7 @@ a:hover {
     line-height: 1.4; }
 
 .info__list--container {
-  height: 750px; }
+  height: 100vh; }
   .info__list--container ul {
     padding-top: 2rem;
     list-style: none;
@@ -662,7 +679,8 @@ a:hover {
 
 .info__contact--container {
   padding-top: 2rem;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  height: 100vh; }
   .info__contact--container p {
     margin-bottom: -1rem; }
     .info__contact--container p:nth-child(2) {
@@ -676,17 +694,19 @@ a:hover {
   color: black;
   text-decoration: underline; }
 
+@media only screen and (max-width: 1024px) {
+  .info__container .info__body .info__bio--container {
+    height: unset; }
+  .info__list--container {
+    height: unset; }
+  .info__contact--container {
+    height: unset; } }
+
 @media only screen and (max-width: 430px) {
   .info__container .info__body {
     margin-right: 2rem; }
     .info__container .info__body * {
       border-right: none !important; }
-    .info__container .info__body .info__bio--container {
-      height: unset; }
-  .info__list--container {
-    height: unset; }
-  .info__contact--container {
-    height: unset; }
   .info__container {
     height: 105vh;
     max-height: 105vh;

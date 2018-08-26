@@ -10,6 +10,7 @@
   &--description {
     min-height: 17rem;
     padding-left: 0;
+    padding-right: 2rem;
     &-title {
       margin-top: 6%;
     }
@@ -93,9 +94,7 @@
       border-bottom: none;
     }
   }
-
 }
-
 
 @media only screen and (max-width: 992px) {
   .single__product {
@@ -119,7 +118,21 @@
       left: 45%;
     }
     &--add-to-cart {
-      margin-right: 20px;
+      padding-right: 20px;
+    }
+  }
+}
+@media only screen and (max-width: 435px) {
+  .single__product {
+    div.single__product--checkout {
+      border-bottom: solid 1px white !important;
+    }
+    &--description {
+      border-top: solid 1px white;
+      padding-top: 7%;
+      margin-bottom: 7%;
+      padding-left: 3rem;
+      padding-right: 3rem;
     }
   }
 }

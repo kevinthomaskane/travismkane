@@ -87,7 +87,6 @@ function getProducts() {
       }
     }
     while ((products.length) % 3 !== 0) {
-      console.log("heleloo")
       $(".products__container").append(`
         <div class="col-md-4 border-bottom hidden-sm hidden-xs">
           <div class="products__container--product">

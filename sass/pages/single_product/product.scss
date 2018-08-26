@@ -5,8 +5,12 @@
   padding-top: 6rem;
   padding-bottom: 6rem;
   background-color: $color-black;
-  height: 77rem;
+  height: 100vh;
   color: $color-white;
+
+  .row:first-child {
+    border-bottom: solid 1px white;
+  }
 
   &-no-border {
     border-bottom: none !important;
@@ -46,13 +50,17 @@
 
 @media only screen and (max-width: 992px) {
   .single__product {
-    height: auto;
+    height: 100vh;
     &--image{
       min-height: 50rem;
       img {
         width: 30rem;
       }
     } 
+
+    &--arrows-container {
+      margin-left: 5rem;
+    }
   }
 }
 

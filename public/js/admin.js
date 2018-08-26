@@ -61,7 +61,7 @@ $("#new_product_submit").on("click", function() {
     dataType: "json",
     data: fd
   }).then((product) => {
-    window.location.reload()
+    window.location.href = window.location.href;
   })
 });
 
@@ -106,13 +106,13 @@ $(document).on("click", ".edit_product_submit", function() {
     file_id: array_of_inputs[3].value
   };
   $.post("/edit-product/" + id, product_object).then(res => {
-    window.location.reload();
+    window.location.href = window.location.href;
   });
 });
 
 $(document).on("click", ".delete_product_submit", function() {
   const id = $(this).attr("id");
   $.post("/delete-product/" + id).then(res => {
-    window.location.reload();
+    window.location.href = window.location.href;
   });
 });
