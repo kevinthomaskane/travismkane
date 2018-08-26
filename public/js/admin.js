@@ -9,6 +9,7 @@ login_button.addEventListener("click", () => {
     password: admin_password
   };
   $.post("/admin-login", admin_object).then(res => {
+    console.log(res)
     if (res.status === "success") {
       localStorage.setItem("loggedIn", true);
       newProductFields();

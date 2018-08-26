@@ -19,6 +19,8 @@ module.exports = function(app, username, password) {
   app.post("/admin-login", (req, res) => {
     if (req.body.username === username && req.body.password === password){
       res.json({ status: "success" });
+    } else {
+      res.end();
     }
   });
 
