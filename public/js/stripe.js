@@ -93,8 +93,14 @@ form.addEventListener("submit", function(event) {
         if (customer_order_object[prop].length < 1) {
           valid = false;
           alert("Please fill out all fields");
+          spinner.style.opacity = "0";
           break;
         }
+      }
+      if (customer_state.length < 2) {
+        valid = false;
+        alert("Please fill out all fields");
+        spinner.style.opacity = "0";
       }
       if (valid) {
         $.post("/printful-create-order", customer_order_object).then(res => {
@@ -103,6 +109,7 @@ form.addEventListener("submit", function(event) {
             stripeTokenHandler(result.token);
           } else {
             alert("something went wrong, please try again");
+            spinner.style.opacity = "0";
           }
         });
       }
@@ -141,7 +148,10 @@ function stripeTokenHandler(token) {
       });
     },
     error: function(xhr, textStatus, error) {
-      alert("something went wrong with your payment, please check your card information")
+      spinner.style.opacity = "0";
+      alert(
+        "something went wrong with your payment, please check your card information"
+      );
     },
     dataType: "json",
     contentType: "application/json"

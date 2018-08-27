@@ -46,7 +46,9 @@ module.exports = function(app) {
       .success(order => {
         res.json(order);
       })
-      .error(error_callback);
+      .error((err) => {
+        res.json(err)
+      });
   });
 
   app.post("/printful-confirm-order/:id", (req, res) => {
@@ -55,7 +57,9 @@ module.exports = function(app) {
       .success(success => {
         res.json({ status: success });
       })
-      .error(error_callback);
+      .error(err => {
+        res.json(err)
+      });
   });
 };
 //Get information about the store
