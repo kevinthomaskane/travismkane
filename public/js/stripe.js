@@ -3,6 +3,7 @@ const item_ids_in_cart = JSON.parse(localStorage.getItem("itemIds"));
 let printful_file_ids = [];
 let printful_order_id;
 const total_value = calculateTotal(item_ids_in_cart);
+const spinner = document.querySelector("#spinner");
 $(".section__payment--total-value").text(`$${total_value}`);
 
 function calculateTotal(arr) {
@@ -65,11 +66,13 @@ async function retrieve_printful_ids(arr) {
 retrieve_printful_ids(item_ids_in_cart);
 form.addEventListener("submit", function(event) {
   let valid = true;
+  spinner.style.opacity = "1";
   event.preventDefault();
   stripe.createToken(card).then(function(result) {
     if (result.error) {
       let errorElement = document.getElementById("card-errors");
       errorElement.textContent = result.error.message;
+      spinner.style.opacity = "0";
     } else {
       const customer_name = $("#name").val();
       const customer_address1 = $("#address1").val();
@@ -98,6 +101,8 @@ form.addEventListener("submit", function(event) {
           if (res.id) {
             printful_order_id = res.id;
             stripeTokenHandler(result.token);
+          } else {
+            alert("something went wrong, please try again");
           }
         });
       }
@@ -130,8 +135,13 @@ function stripeTokenHandler(token) {
     data: formData,
     success: function() {
       $.post("/printful-confirm-order/" + printful_order_id).then(order => {
+        localStorage.removeItem("itemIds");
+        spinner.style.opacity = "0";
         window.location.href = "/complete";
       });
+    },
+    error: function(xhr, textStatus, error) {
+      alert("something went wrong with your payment, please check your card information")
     },
     dataType: "json",
     contentType: "application/json"
