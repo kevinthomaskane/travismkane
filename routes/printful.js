@@ -1,4 +1,6 @@
 const PrintfulClient = require("../printful_config/printfulclient.js");
+const states = require("us-state-codes");
+const assert = require("assert");
 
 const key = process.env.PRINTFUL_API_KEY;
 
@@ -10,12 +12,20 @@ const ok_callback = function(data, info) {
   if (info.total_items) {
     console.log("Total items available: " + info.total_items);
   }
-  res.json(info);
+  //   res.json(info);
 };
 
 const error_callback = function(message, info) {
   console.log("ERROR " + message);
   console.log(info.response_raw);
+};
+
+const state_code_converter = function(state) {
+  if (state.length > 2) {
+    return states.getStateCodeByStateName(state);
+  } else {
+    return states.sanitizeStateCode(state);
+  }
 };
 
 const pf = new PrintfulClient(key);
@@ -27,7 +37,7 @@ module.exports = function(app) {
         name: req.body.name,
         address1: req.body.address,
         city: req.body.city,
-        state_code: req.body.state,
+        state_code: state_code_converter(req.body.state),
         country_code: "US",
         zip: req.body.zipcode
       },
@@ -52,7 +62,9 @@ module.exports = function(app) {
 // pf.get('store').success(ok_callback).error(error_callback);
 
 //Get file list
-// pf.get('files').success(ok_callback).error(error_callback);
+// pf.get("files")
+//   .success(ok_callback)
+//   .error(error_callback);
 
 //Get product list
 // pf.get('products').success(ok_callback).error(error_callback);

@@ -56,7 +56,7 @@ async function retrieve_printful_ids(arr) {
         name: product[0].name,
         retail_price: "33",
         quanity: 1,
-        files: [{ id: product[0].file_id }]
+        files: [{ id: parseInt(product[0].file_id) }]
       });
     });
   }
