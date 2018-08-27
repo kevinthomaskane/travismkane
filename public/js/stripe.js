@@ -12,7 +12,7 @@ function calculateTotal(arr) {
   }
   return total;
 }
-const stripe = Stripe("pk_test_n6OWTMc1mV6eJqiuhGEv4ypN");
+const stripe = Stripe("pk_live_fA9g8eTjdCXwBdl9cRzc4tP6");
 const elements = stripe.elements();
 const style = {
   base: {
