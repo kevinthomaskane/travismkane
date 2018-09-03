@@ -12,7 +12,6 @@ const ok_callback = function(data, info) {
   if (info.total_items) {
     console.log("Total items available: " + info.total_items);
   }
-  //   res.json(info);
 };
 
 const error_callback = function(message, info) {
@@ -52,7 +51,6 @@ module.exports = function(app) {
   });
 
   app.post("/printful-confirm-order/:id", (req, res) => {
-    console.log("req.body in order confirm route", req.body);
     pf.post(`orders/${req.params.id}/confirm`)
       .success(success => {
         res.json({ status: success });

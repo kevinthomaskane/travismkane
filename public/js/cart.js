@@ -23,13 +23,14 @@ async function printItems(obj) {
   const length = Object.keys(obj).length;
   for (let prop in obj) {
     await $.get("/product-info/" + prop).then(product => {
-      // const image = product[0].image.split("public")[1];
       $(".cart__items-container").prepend(`
        <div class="cart__item border-top" data-id=${product[0]._id}>
           <div class="row">
             <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-3">
               <div class="cart__image-container border-right">
-              <img class="cart__image-container-image" src="${product[0].image}" />
+              <img class="cart__image-container-image" src="${
+                product[0].image
+              }" />
               </div>
             </div>
             <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-3">
@@ -47,8 +48,8 @@ async function printItems(obj) {
                 <div class="cart__quantity">
                   QTY &#160;
                   <span class="cart__quantity-count" id=${product[0]._id}>${
-                      obj[prop]
-                    }</span>  
+        obj[prop]
+      }</span>  
                 </div>
                 <div class="single__product--arrows">
                   <div class="single__product--arrows-container">
@@ -89,14 +90,21 @@ function getCartCount() {
   const cart = $(".header__block--cart");
   const nothing_in_cart = $(".nothing-in-cart")[0];
   const cart_section = $(".cart")[0];
-  if (localStorage.getItem("itemIds") && localStorage.getItem("itemIds") !== "[]") {
+  if (
+    localStorage.getItem("itemIds") &&
+    localStorage.getItem("itemIds") !== "[]"
+  ) {
     let storage_array = JSON.parse(localStorage.getItem("itemIds"));
     number_in_cart = storage_array.length;
-    cart.html(`<a href="/cart">&#8618;CART (${number_in_cart})</a>`);
-    nothing_in_cart.style = "display: none;"
-    cart.style = "display: block;"
+    cart.html(
+      `<a href="/cart"><img class="header-arrow" src="../uploads/arrow.png">CART (${number_in_cart})</a>`
+    );
+    nothing_in_cart.style = "display: none;";
+    cart.style = "display: block;";
   } else {
-    cart.html(`<a href="/cart">&#8618;CART</a>`);
+    cart.html(
+      `<a href="/cart"><img class="header-arrow" src="../uploads/arrow.png">CART</a>`
+    );
     nothing_in_cart.style = "display: block;";
     cart_section.style = "display: none;";
   }
@@ -122,14 +130,14 @@ function checkDuplicates(arr) {
   return obj;
 }
 
-function showDropdown(id){
+function showDropdown(id) {
   const dropdown = $(".remove__item-dropdown")[0];
-  dropdown.style = "position: relative; animation: dropdown 4s;"
+  dropdown.style = "position: relative; animation: dropdown 4s;";
 }
 
-function resetDropdown(){
+function resetDropdown() {
   const dropdown = $(".remove__item-dropdown")[0];
-  dropdown.style = "display: none;"
+  dropdown.style = "display: none;";
 }
 
 $(document).on("click", ".arrow-up", function() {
@@ -185,6 +193,5 @@ $(document).on("click", ".cart__trash img", function() {
     calculateTotal(objectWithQuantities);
     $(".cart__items-container").empty();
     printItems(objectWithQuantities);
-  }, 4000)
-  
+  }, 4000);
 });

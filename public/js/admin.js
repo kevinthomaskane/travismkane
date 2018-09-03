@@ -1,5 +1,4 @@
 const login_button = document.getElementById("admin_login_button");
-const fd = new FormData();
 
 login_button.addEventListener("click", () => {
   const admin_username = document.getElementById("admin_username").value;
@@ -9,7 +8,6 @@ login_button.addEventListener("click", () => {
     password: admin_password
   };
   $.post("/admin-login", admin_object).then(res => {
-    console.log(res)
     if (res.status === "success") {
       localStorage.setItem("loggedIn", true);
       newProductFields();
@@ -44,26 +42,15 @@ function newProductFields() {
 `);
 }
 
-// $("#picture-upload").on("change", function(e) {
-//   const image_upload = e.target.files[0];
-//   fd.append("image", image_upload, image_upload.name);
-// });
-
 $("#new_product_submit").on("click", function() {
-  fd.append("name", $("#new_product_name").val());
-  fd.append("description", $("#new_product_description").val());
-  fd.append("cost", $("#new_product_cost").val());
-  fd.append("file_id", $("#new_product_printful_file_id").val());
-  fd.append("image", $("#picture-upload").val());
-
-  $.ajax({
-    url: "/add-product",
-    type: "POST",
-    processData: false,
-    contentType: false,
-    dataType: "json",
-    data: fd
-  }).then((product) => {
+  let obj = {
+    name: $("#new_product_name").val(),
+    description: $("#new_product_description").val(),
+    cost: $("#new_product_cost").val(),
+    file_id: $("#new_product_printful_file_id").val(),
+    image: $("#picture-upload").val()
+  }
+  $.post("/add-product", obj).then(product => {
     window.location.href = window.location.href;
   })
 });
@@ -72,15 +59,14 @@ function getAllProducts() {
   $.get("/all_products").then(res => {
     if (localStorage.getItem("loggedIn")) {
       for (let i = 0; i < res.length; i++) {
-        // let img_path = res[i].image.split("public")[1];
         $(".current-product-fields").append(`
         <div class="current-product">
             <label for="new_product_name">Product Name</label>
             <input type="text" class="${res[i]._id}" value="${res[i].name}">
             <label for="new_product_description">Product Description</label>
             <textarea class="${res[i]._id}" value="">${
-              res[i].description
-            }</textarea>
+          res[i].description
+        }</textarea>
             <label for="new_product_cost">Product Cost</label>
             <input type="text" class="${res[i]._id}" value="${res[i].cost}">
             <label>Printful File Id</label>

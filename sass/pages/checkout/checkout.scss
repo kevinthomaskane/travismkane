@@ -17,6 +17,7 @@
       background-color: black;
       border: none;
       outline: solid 1px white;
+      margin-bottom: 2rem;
     }
 
     label {
@@ -29,10 +30,23 @@
   &__payment {
     border-top: solid 1px white;
     padding-top: 4rem;
-    padding-left: 2rem;
     background-color: black;
     color: white;
     height: 60rem;
+
+    &--title {
+      padding-left: 2rem;
+    }
+
+    &--button {
+      &:hover {
+        background-color: white;
+        color: black;}
+    }
+
+    .form-row {
+      padding-left: 2rem;
+    }
 
     label {
       display: block;
@@ -73,9 +87,10 @@
     }
 
     button {
-      color: white;
-      background-color: black;
+      color: inherit;
+      background-color: inherit;
       border: none;
+      margin-right: 50px;
     }
   }
 }

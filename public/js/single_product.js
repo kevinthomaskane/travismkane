@@ -133,5 +133,8 @@ $(".single__product--add-to-cart").on("click", function() {
   if (screen_width > 1100) {
     imageToCart();
     resetImage();
+  } else {
+    increaseCart();
+    checkItemInCart();
   }
 });

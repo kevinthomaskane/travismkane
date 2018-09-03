@@ -2,18 +2,7 @@ const Admin = require("../models/Admin");
 const Product = require("../models/Product");
 const express = require("express");
 const app = express();
-const multer = require("multer")
-const storage = multer.diskStorage({
-  destination: function(req, res, cb){
-    cb(null, "public/uploads/")
-  },
-  filename: function(req, res, cb){
-    cb(null, res.originalname)
-  }
-})
-const upload = multer({ storage: storage });
 
-app.use(multer({dest:'./public/uploads/'}).any());
 
 module.exports = function(app, username, password) {
   app.post("/admin-login", (req, res) => {
@@ -43,7 +32,7 @@ module.exports = function(app, username, password) {
       res.send(product)});
   });
 
-  app.post("/add-product", upload.single("image"), (req, res) => {
+  app.post("/add-product", (req, res) => {
     const newProduct = new Product({
       name: req.body.name,
       description: req.body.description,

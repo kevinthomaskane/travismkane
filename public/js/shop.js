@@ -1,17 +1,6 @@
 $(document).ready(function() {
   getProducts();
   getCartCount();
-  $("#button-pay").on("click", function() {
-    const amount = $(this).text();
-    const item_in_cart = localStorage.getItem("itemId");
-    const charge_object = {
-      amount: 500,
-      currency: "usd"
-    };
-    // $.post("/charge", charge_object).then(response => {
-    //   console.log(response)
-    // })
-  });
 });
 
 function calculateCostInCart(arr) {
@@ -39,7 +28,6 @@ function getCartCount() {
 function getProducts() {
   $.get("/all_products").then(products => {
     for (let i = 0; i < products.length; i++) {
-      // let imageUrl = products[i].image.split("public")[1];
       if (i < products.length - 3) {
         $(".products__container").prepend(`
         <div class="col-md-4">
@@ -54,7 +42,7 @@ function getProducts() {
                     ${products[i].name}
                   </div>
                   <div class="products__container--cost">
-                    ${products[i].cost}
+                    $${products[i].cost} - free shipping
                   </div>
                 </div>
               </div>
@@ -76,7 +64,7 @@ function getProducts() {
                     ${products[i].name}
                   </div>
                   <div class="products__container--cost">
-                    ${products[i].cost}
+                    $${products[i].cost} - free shipping
                   </div>
                 </div>
               </div>
@@ -86,7 +74,7 @@ function getProducts() {
       `);
       }
     }
-    while ((products.length) % 3 !== 0) {
+    while (products.length % 3 !== 0) {
       $(".products__container").append(`
         <div class="col-md-4 border-bottom hidden-sm hidden-xs">
           <div class="products__container--product">

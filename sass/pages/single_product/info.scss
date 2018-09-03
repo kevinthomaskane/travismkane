@@ -89,7 +89,7 @@
       }
     }
     &-empty {
-      height: 40rem;
+      height: calc(100vh - 20rem);
       position: relative;
       border-bottom: none;
     }
@@ -133,6 +133,12 @@
       margin-bottom: 7%;
       padding-left: 3rem;
       padding-right: 3rem;
+    }
+    &--arrows {
+      left: 50%;
+    }
+    &--quantity {
+      left: 44%;
     }
   }
 }
