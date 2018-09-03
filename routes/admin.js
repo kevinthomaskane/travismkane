@@ -48,7 +48,7 @@ module.exports = function(app, username, password) {
       name: req.body.name,
       description: req.body.description,
       cost: req.body.cost,
-      image: req.file.path,
+      image: req.body.image,
       file_id: req.body.file_id
     });
 

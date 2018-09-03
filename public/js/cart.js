@@ -23,13 +23,13 @@ async function printItems(obj) {
   const length = Object.keys(obj).length;
   for (let prop in obj) {
     await $.get("/product-info/" + prop).then(product => {
-      const image = product[0].image.split("public")[1];
+      // const image = product[0].image.split("public")[1];
       $(".cart__items-container").prepend(`
        <div class="cart__item border-top" data-id=${product[0]._id}>
           <div class="row">
             <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-3">
               <div class="cart__image-container border-right">
-              <img class="cart__image-container-image" src="${image}" />
+              <img class="cart__image-container-image" src="${product[0].image}" />
               </div>
             </div>
             <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-3">

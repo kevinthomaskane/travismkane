@@ -37,22 +37,24 @@ function newProductFields() {
     <input type="text" id="new_product_cost">
     <label for="new_product_printful_file_id">Printful File Id</label>
     <input type="text" id="new_product_printful_file_id">
-    <input id="picture-upload" type="file" name="picture" className="custom-file-input"/>
+    <label for="picture-upload">Printful URL</label>
+    <input id="picture-upload" type="text" name="picture" className="custom-file-input"/>
     <button id="new_product_submit">submit information</button>
   </div>
 `);
 }
 
-$("#picture-upload").on("change", function(e) {
-  const image_upload = e.target.files[0];
-  fd.append("image", image_upload, image_upload.name);
-});
+// $("#picture-upload").on("change", function(e) {
+//   const image_upload = e.target.files[0];
+//   fd.append("image", image_upload, image_upload.name);
+// });
 
 $("#new_product_submit").on("click", function() {
   fd.append("name", $("#new_product_name").val());
   fd.append("description", $("#new_product_description").val());
   fd.append("cost", $("#new_product_cost").val());
   fd.append("file_id", $("#new_product_printful_file_id").val());
+  fd.append("image", $("#picture-upload").val());
 
   $.ajax({
     url: "/add-product",
@@ -70,7 +72,7 @@ function getAllProducts() {
   $.get("/all_products").then(res => {
     if (localStorage.getItem("loggedIn")) {
       for (let i = 0; i < res.length; i++) {
-        let img_path = res[i].image.split("public")[1];
+        // let img_path = res[i].image.split("public")[1];
         $(".current-product-fields").append(`
         <div class="current-product">
             <label for="new_product_name">Product Name</label>
@@ -86,7 +88,7 @@ function getAllProducts() {
             <button class="edit_product_submit" id="${
               res[i]._id
             }">submit edits</button>
-            <img class="current-product--image" src="../${img_path}" >
+            <img class="current-product--image" src="${res[i].image}" >
             <button class="delete_product_submit" id="${
               res[i]._id
             }">delete product</button>

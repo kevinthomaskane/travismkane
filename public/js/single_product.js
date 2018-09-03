@@ -28,10 +28,10 @@ $(document).ready(function() {
 function displayInformation() {
   $(".single__product--image").append(`
     <img class="single__product--image-image" src="${
-      current_product[0].image.split("public")[1]
+      current_product[0].image
     }" />
     <img class="single__product--image-clone" src="${
-      current_product[0].image.split("public")[1]
+      current_product[0].image
     }" />
   `);
   $(".single__product--description").append(`

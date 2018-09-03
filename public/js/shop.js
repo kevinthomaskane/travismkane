@@ -39,14 +39,14 @@ function getCartCount() {
 function getProducts() {
   $.get("/all_products").then(products => {
     for (let i = 0; i < products.length; i++) {
-      let imageUrl = products[i].image.split("public")[1];
+      // let imageUrl = products[i].image.split("public")[1];
       if (i < products.length - 3) {
         $(".products__container").prepend(`
         <div class="col-md-4">
           <div class="products__container--product">
             <div class="products__container--image">
               <a href="/single-product/${products[i]._id}">
-                <img src="${imageUrl}" />
+                <img src="${products[i].image}" />
               </a>
               <div class="products__container--overlay">
                 <div class="products__container--overlay-body">
@@ -68,7 +68,7 @@ function getProducts() {
           <div class="products__container--product">
             <div class="products__container--image">
               <a href="/single-product/${products[i]._id}">
-                <img src="${imageUrl}" />
+                <img src="${products[i].image}" />
               </a>
               <div class="products__container--overlay">
                 <div class="products__container--overlay-body">

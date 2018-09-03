@@ -44,19 +44,17 @@
       z-index: 2;
     }
   }
-
-  
 }
 
 @media only screen and (max-width: 992px) {
   .single__product {
-    height: 100vh;
-    &--image{
+    height: auto;
+    &--image {
       min-height: 50rem;
       img {
         width: 30rem;
       }
-    } 
+    }
 
     &--arrows-container {
       margin-left: 5rem;
@@ -64,9 +62,12 @@
   }
 }
 
-@media only screen and (max-width: 415px){
+@media only screen and (max-width: 415px) {
   .single__product {
     padding-bottom: 20rem;
+    .row:first-of-type {
+      border-bottom: none;
+    }
   }
 }
 
