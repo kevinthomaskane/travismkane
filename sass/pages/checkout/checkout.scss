@@ -12,12 +12,36 @@
     color: white;
     padding-bottom: 4rem;
 
+    &--shipping-container-header {
+      margin-bottom: 1rem;
+    }
+
+    .country-dropdown {
+      background-color: #fff;
+      color: black;
+      height: 210px;
+      overflow: scroll;
+      padding: 5px;
+      margin-top: -2rem;
+      position: absolute;
+      width: 94%;
+      z-index: 3;
+      div {
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgb(212, 211, 211);
+        }
+      }
+    }
+
     input {
       width: 100%;
       background-color: black;
       border: none;
       outline: solid 1px white;
       margin-bottom: 2rem;
+      padding-left: 1rem;
     }
 
     label {
@@ -36,6 +60,7 @@
 
     &--title {
       padding-left: 2rem;
+      margin-bottom: 1rem;
     }
 
     &--button {

@@ -45,7 +45,7 @@
     <div class="section__checkout--shipping-container">
       <div class="row">
         <div class="col-md-12">
-          <div class="setion__checkout--shipping-container-header">
+          <div class="section__checkout--shipping-container-header">
             SHIPPING ADDRESS
           </div>
         </div>
@@ -56,8 +56,9 @@
           <input type="text" id="name" required>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-          <label for="zipcode">Postal Code *</label>
-          <input type="text" id="zipcode">
+          <label for="name">Country *</label>
+          <input type="text" id="country" placeholder="Choose from dropdown" required>
+          <div class="country-dropdown"></div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 hidden-xs hidden-sm hidden-md">&nbsp;</div>
       </div>
@@ -78,15 +79,17 @@
           <input type="text" id="address2" required>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-          <label for="zipcode">State *</label>
-          <input type="text" id="state" required>
+            <label for="zipcode">Postal Code *</label>
+            <input type="text" id="zipcode">
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 hidden-xs hidden-sm hidden-md">&nbsp;</div>
       </div>
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-          <label for="name">Country *</label>
-          <input type="text" id="country" required>
+          <div class="state__container">
+              <label for="zipcode">State *</label>
+              <input type="text" id="state" placeholder="Required for US, CA, AU" required> 
+          </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 hidden-xs hidden-sm hidden-md">&nbsp;
         </div>

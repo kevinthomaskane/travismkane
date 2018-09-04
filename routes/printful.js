@@ -1,5 +1,6 @@
 const PrintfulClient = require("../printful_config/printfulclient.js");
 const states = require("us-state-codes");
+const countries = require("i18n-iso-countries");
 const assert = require("assert");
 
 const key = process.env.PRINTFUL_API_KEY;
@@ -37,7 +38,7 @@ module.exports = function(app) {
         address1: req.body.address,
         city: req.body.city,
         state_code: state_code_converter(req.body.state),
-        country_code: "US",
+        country_code: req.body.country,
         zip: req.body.zipcode
       },
       items: req.body.items
@@ -49,6 +50,29 @@ module.exports = function(app) {
         res.json(err)
       });
   });
+  app.post("/printful-create-order-int", (req, res) => {
+    pf.post("orders", {
+      recipient: {
+        name: req.body.name,
+        address1: req.body.address,
+        city: req.body.city,
+        country_code: req.body.country,
+        zip: req.body.zipcode
+      },
+      items: req.body.items
+    })
+      .success(order => {
+        res.json(order);
+      })
+      .error((err) => {
+        res.json(err)
+      });
+  });
+
+  app.get("/country-codes", (req, res) => {
+    const countryNames = countries.getNames("en")
+    res.json(countryNames)
+  })
 
   app.post("/printful-confirm-order/:id", (req, res) => {
     pf.post(`orders/${req.params.id}/confirm`)

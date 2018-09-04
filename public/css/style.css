@@ -38,7 +38,10 @@ a:hover {
 
 @media only screen and (max-width: 768px) {
   body {
-    font-size: 1.6rem; } }
+    font-size: 1.6rem;
+    letter-spacing: 0; }
+  header {
+    letter-spacing: -1px; } }
 
 .no-paddings {
   padding-left: 0;
@@ -647,6 +650,7 @@ a:hover {
 
 .info__container {
   height: 100vh;
+  overflow: hidden;
   background-image: url(../uploads/bg.png);
   background-size: cover; }
   .info__container .footer {
@@ -663,7 +667,11 @@ a:hover {
   line-height: 6rem;
   height: 6rem;
   border-bottom: 1px solid black;
-  color: black; }
+  color: black;
+  position: fixed;
+  width: 100%;
+  background-color: #ff511a;
+  z-index: 100; }
   .info__header a {
     color: black !important; }
   .info__header .col-lg-4 {
@@ -676,7 +684,8 @@ a:hover {
 
 .info__body {
   padding-left: 2rem;
-  color: black !important; }
+  color: black !important;
+  padding-top: 6rem; }
   .info__body .border-right {
     border-right: solid 1px black !important; }
   .info__body .info__bio--container {
@@ -689,6 +698,9 @@ a:hover {
     padding-top: 2rem;
     margin-bottom: 15px;
     line-height: 1.4; }
+    .info__body .info__bio--second a {
+      color: black;
+      text-decoration: underline; }
 
 .info__list--container {
   height: 100vh; }
@@ -744,12 +756,29 @@ a:hover {
   background-color: black;
   color: white;
   padding-bottom: 4rem; }
+  .section__checkout--shipping-container-header {
+    margin-bottom: 1rem; }
+  .section__checkout .country-dropdown {
+    background-color: #fff;
+    color: black;
+    height: 210px;
+    overflow: scroll;
+    padding: 5px;
+    margin-top: -2rem;
+    position: absolute;
+    width: 94%;
+    z-index: 3; }
+    .section__checkout .country-dropdown div {
+      cursor: pointer; }
+      .section__checkout .country-dropdown div:hover {
+        background-color: #d4d3d3; }
   .section__checkout input {
     width: 100%;
     background-color: black;
     border: none;
     outline: solid 1px white;
-    margin-bottom: 2rem; }
+    margin-bottom: 2rem;
+    padding-left: 1rem; }
   .section__checkout label {
     display: block;
     color: white;
@@ -762,7 +791,8 @@ a:hover {
   color: white;
   height: 60rem; }
   .section__payment--title {
-    padding-left: 2rem; }
+    padding-left: 2rem;
+    margin-bottom: 1rem; }
   .section__payment--button:hover {
     background-color: white;
     color: black; }

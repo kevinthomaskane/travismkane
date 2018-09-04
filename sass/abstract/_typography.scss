@@ -23,5 +23,9 @@ a:hover {
 @media only screen and (max-width: 768px) {
   body {
     font-size: 1.6rem;
+    letter-spacing: 0;
+  }
+  header {
+    letter-spacing: -1px;
   }
 }
