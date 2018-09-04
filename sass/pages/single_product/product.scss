@@ -23,7 +23,7 @@
 
   &--image {
     max-width: 100%;
-    min-height: 71rem;
+    height: calc(100vh - 12rem);
     padding-top: 6rem;
     padding-bottom: 6rem;
     position: relative;
@@ -67,9 +67,13 @@
   }
 }
 
-@media only screen and (max-width: 415px) {
+@media only screen and (max-width: 430px) {
   .single__product {
     padding-bottom: 20rem;
+
+  &--description-description {
+    line-height: 1;
+  }
 
     #product-image {
       height: unset;
