@@ -5,8 +5,7 @@
   padding-top: 6rem;
   padding-bottom: 6rem;
   background-color: $color-black;
-  height: 100vh;
-  min-height: 77rem;
+  min-height: calc(100vh - 6rem);
   color: $color-white;
   overflow: hidden;
 
@@ -312,7 +311,7 @@
       padding-top: 2.5rem;
     }
 
-    &__trash img{
+    &__trash img {
       margin-bottom: 5px;
       margin-right: 15%;
     }
