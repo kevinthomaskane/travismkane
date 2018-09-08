@@ -34,8 +34,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -51%);
-      width: 48rem;
-      height: auto;
+      width: auto;
+      height: 90%;
       z-index: 0;
     }
     &-clone {
@@ -43,8 +43,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -51%);
-      width: 48rem;
-      height: auto;
+      width: auto;
+      height: 90%;
       backface-visibility: hidden;
       z-index: 2;
     }

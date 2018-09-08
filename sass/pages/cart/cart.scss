@@ -35,6 +35,9 @@
   }
 
   &__description {
+    &--description {
+      line-height: 1.3;
+    }
     &--container {
       position: relative;
       height: 22rem;

@@ -3,6 +3,8 @@ let quantity = parseInt($(".single__product--quantity-count").text());
 let items_in_cart;
 let added_to_cart = false;
 const screen_width = $(window).width();
+const screen_height = $(window).height();
+console.log(screen_height)
 
 if (localStorage.getItem("itemIds")) {
   let array = [];
@@ -130,7 +132,7 @@ $(".single__product--add-to-cart").on("click", function() {
     items_in_cart.push(window.location.href.split("single-product/")[1]);
   }
   localStorage.setItem("itemIds", JSON.stringify(items_in_cart));
-  if (screen_width > 1100) {
+  if (screen_width > 1100 && screen_height > 750) {
     imageToCart();
     resetImage();
   } else {
