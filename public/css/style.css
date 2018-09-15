@@ -401,6 +401,16 @@ a:hover {
     .single__product .row:first-of-type {
       border-bottom: none; } }
 
+@media only screen and (min-height: 1300px) {
+  .single__product--image-image {
+    max-height: 1000px;
+    top: 540px;
+    width: auto; }
+  .single__product--image-clone {
+    max-height: 1000px;
+    top: 540px;
+    width: auto; } }
+
 @keyframes imageSlide {
   0% {
     opacity: 1;
@@ -507,7 +517,7 @@ a:hover {
     height: 30rem;
     width: 100%; }
   .cart__total-final .row > div > div {
-    height: 37rem; }
+    height: calc(100vh - 340px); }
 
 .nothing-in-cart {
   display: none;
@@ -792,7 +802,7 @@ a:hover {
   padding-top: 4rem;
   background-color: black;
   color: white;
-  height: 60rem; }
+  min-height: calc(100vh - 290px); }
   .section__payment--title {
     padding-left: 2rem;
     margin-bottom: 1rem; }
@@ -800,7 +810,8 @@ a:hover {
     background-color: white;
     color: black; }
   .section__payment .form-row {
-    padding-left: 2rem; }
+    padding-left: 2rem;
+    margin-bottom: 5rem; }
   .section__payment label {
     display: block;
     color: white;

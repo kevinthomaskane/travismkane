@@ -128,7 +128,7 @@
     }
 
     .row > div > div {
-      height: 37rem;
+      height: calc(100vh - 340px);
     }
   }
 }

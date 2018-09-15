@@ -84,6 +84,23 @@
   }
 }
 
+@media only screen and (min-height: 1300px){
+  .single__product {
+    &--image {
+      &-image {
+        max-height: 1000px;
+        top: 540px;
+        width: auto;
+      }
+      &-clone {
+        max-height: 1000px;
+        top: 540px;
+        width: auto;
+      }
+    }
+  }
+}
+
 @keyframes imageSlide {
   0% {
     opacity: 1;

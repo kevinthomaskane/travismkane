@@ -57,7 +57,7 @@
     padding-top: 4rem;
     background-color: black;
     color: white;
-    height: 60rem;
+    min-height: calc(100vh - 290px);
 
     &--title {
       padding-left: 2rem;
@@ -72,6 +72,7 @@
 
     .form-row {
       padding-left: 2rem;
+      margin-bottom: 5rem;
     }
 
     label {

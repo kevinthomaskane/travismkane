@@ -4,7 +4,6 @@ let items_in_cart;
 let added_to_cart = false;
 const screen_width = $(window).width();
 const screen_height = $(window).height();
-console.log(screen_height)
 
 if (localStorage.getItem("itemIds")) {
   let array = [];

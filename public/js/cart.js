@@ -132,7 +132,7 @@ function checkDuplicates(arr) {
 
 function showDropdown(id) {
   const dropdown = $(".remove__item-dropdown")[0];
-  dropdown.style = "position: relative; animation: dropdown 4s;";
+  dropdown.style = "position: relative; animation: dropdown 2s;";
 }
 
 function resetDropdown() {
@@ -193,5 +193,5 @@ $(document).on("click", ".cart__trash img", function() {
     calculateTotal(objectWithQuantities);
     $(".cart__items-container").empty();
     printItems(objectWithQuantities);
-  }, 4000);
+  }, 2000);
 });
