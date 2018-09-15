@@ -802,7 +802,7 @@ a:hover {
   padding-top: 4rem;
   background-color: black;
   color: white;
-  min-height: calc(100vh - 290px); }
+  min-height: calc(100vh - 100px); }
   .section__payment--title {
     padding-left: 2rem;
     margin-bottom: 1rem; }

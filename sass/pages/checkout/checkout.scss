@@ -57,7 +57,7 @@
     padding-top: 4rem;
     background-color: black;
     color: white;
-    min-height: calc(100vh - 290px);
+    min-height: calc(100vh - 100px);
 
     &--title {
       padding-left: 2rem;
@@ -67,7 +67,8 @@
     &--button {
       &:hover {
         background-color: white;
-        color: black;}
+        color: black;
+      }
     }
 
     .form-row {
