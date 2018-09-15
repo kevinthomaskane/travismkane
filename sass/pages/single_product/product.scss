@@ -58,6 +58,7 @@
       min-height: 50rem;
       img {
         width: 30rem;
+        height: auto;
       }
     }
 
@@ -71,9 +72,9 @@
   .single__product {
     padding-bottom: 20rem;
 
-  &--description-description {
-    line-height: 1;
-  }
+    &--description-description {
+      line-height: 1;
+    }
 
     #product-image {
       height: unset;
@@ -84,7 +85,7 @@
   }
 }
 
-@media only screen and (min-height: 1300px){
+@media only screen and (min-height: 1300px) {
   .single__product {
     &--image {
       &-image {

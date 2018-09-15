@@ -387,7 +387,8 @@ a:hover {
     .single__product--image {
       min-height: 50rem; }
       .single__product--image img {
-        width: 30rem; }
+        width: 30rem;
+        height: auto; }
     .single__product--arrows-container {
       margin-left: 5rem; } }
 
