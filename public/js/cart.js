@@ -154,7 +154,7 @@ $(document).on("click", ".arrow-up", function() {
 });
 
 $(document).on("click", ".arrow-down", function() {
-  if (objectWithQuantities[$(this).attr("data-id")] > 0) {
+  if (objectWithQuantities[$(this).attr("data-id")] > 1) {
     const id = $(this).attr("data-id");
     objectWithQuantities[id]--;
     items_in_cart.splice(items_in_cart.indexOf(id), 1);

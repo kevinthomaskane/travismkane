@@ -40,7 +40,7 @@ function displayInformation() {
       ${current_product[0].name} - $${current_product[0].cost}
     </div>
     <div class="single__product--description-description">
-      ${current_product[0].description}
+      <p>${current_product[0].description}</p>
     </div>
   `);
 }
