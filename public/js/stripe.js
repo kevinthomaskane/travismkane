@@ -71,12 +71,11 @@ const elements = stripe.elements();
 const style = {
   base: {
     color: "white",
-    lineHeight: "18px",
-    fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+    lineHeight: "24px",
     fontSmoothing: "antialiased",
-    fontSize: "16px",
+    fontSize: "24px",
     "::placeholder": {
-      color: "#aab7c4"
+      color: "gray"
     }
   },
   invalid: {

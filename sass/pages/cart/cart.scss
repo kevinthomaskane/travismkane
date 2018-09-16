@@ -305,7 +305,7 @@
   }
 }
 
-@media only screen and (max-width: 415px) {
+@media only screen and (max-width: 450px) {
   .cart {
     .single__product--arrows-container {
       margin-left: 5rem;
@@ -336,7 +336,15 @@
       border-top: solid 1px white;
     }
     &__description--container {
-      height: 14rem;
+      min-height: 14rem;
+      height: unset;
+      &-body {
+        position: unset;
+        top: unset;
+        padding-right: 3.5rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+      }
     }
   }
 }

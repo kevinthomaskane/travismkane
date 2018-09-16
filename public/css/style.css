@@ -644,7 +644,7 @@ a:hover {
   .cart__price {
     height: 8rem; } }
 
-@media only screen and (max-width: 415px) {
+@media only screen and (max-width: 450px) {
   .cart .single__product--arrows-container {
     margin-left: 5rem; }
   .cart__price, .cart__trash {
@@ -663,7 +663,14 @@ a:hover {
   .cart__item:first-child .row .col-xs-12:nth-child(2) {
     border-top: solid 1px white; }
   .cart__description--container {
-    height: 14rem; } }
+    min-height: 14rem;
+    height: unset; }
+    .cart__description--container-body {
+      position: unset;
+      top: unset;
+      padding-right: 3.5rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem; } }
 
 .info__container {
   height: 100vh;
@@ -840,7 +847,10 @@ a:hover {
     outline: solid 1px white;
     height: 40px;
     width: 66.66%;
-    margin-bottom: 4rem; }
+    margin-bottom: 4rem;
+    font-family: 'SF UI';
+    font-weight: 400;
+    padding-bottom: 3rem; }
   .section__payment button {
     color: inherit;
     background-color: inherit;

@@ -7,19 +7,6 @@ const key = process.env.PRINTFUL_API_KEY;
 
 //product type poster-enhanced-matte-paper-poster 18X24 ID: 1
 
-const ok_callback = function(data, info) {
-  console.log("SUCCESS");
-  console.log(data);
-  if (info.total_items) {
-    console.log("Total items available: " + info.total_items);
-  }
-};
-
-const error_callback = function(message, info) {
-  console.log("ERROR " + message);
-  console.log(info.response_raw);
-};
-
 const state_code_converter = function(state) {
   if (state.length > 2) {
     return states.getStateCodeByStateName(state);
