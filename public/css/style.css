@@ -770,6 +770,12 @@ a:hover {
   height: 50px;
   opacity: 0; }
 
+#copyright {
+  font-size: 12px;
+  line-height: 24px;
+  vertical-align: top;
+  margin-left: -5px; }
+
 .section__checkout {
   padding-top: 8rem;
   padding-left: 2rem;
@@ -810,7 +816,7 @@ a:hover {
   padding-top: 4rem;
   background-color: black;
   color: white;
-  min-height: calc(100vh - 100px); }
+  min-height: 550px; }
   .section__payment--title {
     padding-left: 2rem;
     margin-bottom: 1rem; }
@@ -844,7 +850,7 @@ a:hover {
     height: 40px;
     width: 66.66%;
     margin-bottom: 4rem;
-    font-family: 'SF UI';
+    font-family: "SF UI";
     font-weight: 400;
     padding-bottom: 3rem; }
   .section__payment button {

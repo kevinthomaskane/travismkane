@@ -73,7 +73,7 @@ const style = {
     color: "white",
     lineHeight: "24px",
     fontSmoothing: "antialiased",
-    fontSize: "24px",
+    fontSize: "18px",
     "::placeholder": {
       color: "gray"
     }
