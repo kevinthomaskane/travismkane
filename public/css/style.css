@@ -857,7 +857,8 @@ a:hover {
     color: inherit;
     background-color: inherit;
     border: none;
-    margin-right: 50px; }
+    margin-right: 50px;
+    outline: none; }
 
 @media (max-width: 768px) {
   .section__checkout {
