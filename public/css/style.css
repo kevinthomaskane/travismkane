@@ -375,12 +375,12 @@ a:hover {
       height: 90%;
       z-index: 0; }
     .single__product--image-clone {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -51%);
+      position: fixed;
+      top: 15rem;
+      right: 60.6667%;
       width: auto;
-      height: 90%;
+      height: 200px;
+      opacity: 0;
       backface-visibility: hidden;
       z-index: 2; }
 
@@ -417,24 +417,20 @@ a:hover {
 
 @keyframes imageSlide {
   0% {
+    opacity: .5;
+    z-index: 2;
+    top: 15rem; }
+  70% {
+    right: 2rem;
     opacity: 1;
-    z-index: 2; }
-  50% {
-    left: 120%;
-    top: -40%;
-    transform: scale(0.1);
-    z-index: 2; }
-  90% {
-    left: 120%;
-    top: -45%;
-    transform: scale(0);
-    opacity: 0.8;
-    z-index: 2; }
+    top: 7rem;
+    z-index: 2;
+    transform: scale(0.3); }
   100% {
-    left: 120%;
-    top: -50%;
-    transform: scale(0);
-    opacity: 0; } }
+    right: 2rem;
+    top: -10rem;
+    opacity: 0;
+    transform: scale(0.1); } }
 
 .cart {
   display: block;

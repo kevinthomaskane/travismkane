@@ -3,7 +3,6 @@ let quantity = parseInt($(".single__product--quantity-count").text());
 let items_in_cart;
 let added_to_cart = false;
 const screen_width = $(window).width();
-const screen_height = $(window).height();
 
 if (localStorage.getItem("itemIds")) {
   let array = [];
@@ -51,7 +50,7 @@ function updateQuantity(num) {
 
 function imageToCart() {
   const clone = $(".single__product--image-clone");
-  clone[0].style = "animation: imageSlide 2s; z-index: 2;";
+  clone[0].style = "animation: imageSlide 1.5s; z-index: 2;";
 }
 
 function increaseCart() {
@@ -103,8 +102,8 @@ function resetImage() {
     increaseCart();
     checkItemInCart();
     clone[0].style =
-      "position: absolute; top: 50%; left: 50%; transform: translate(-50%, -51%) translateZ(0); width: 44rem; height: 59rem; backfaceVisibility: hidden; display: none; z-index: 2;";
-  }, 2000);
+      "position: fixed; top: 15rem; right: 65.667%; transform: translateZ(0); width: auto; height: 200px; backfaceVisibility: hidden; z-index: 2; opacity: 0;";
+  }, 1500);
 }
 
 function showCartOptions() {
@@ -131,7 +130,7 @@ $(".single__product--add-to-cart").on("click", function() {
     items_in_cart.push(window.location.href.split("single-product/")[1]);
   }
   localStorage.setItem("itemIds", JSON.stringify(items_in_cart));
-  if (screen_width > 1100 && screen_height > 750) {
+  if (screen_width > 991) {
     imageToCart();
     resetImage();
   } else {
