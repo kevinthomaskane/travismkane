@@ -52,103 +52,106 @@
       </div>
     </div>
   </header>
-  <section class="section__checkout">
-    <div class="section__checkout--shipping-container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="section__checkout--shipping-container-header">
-            SHIPPING ADDRESS
+  <div class="checkout__container">
+    <section class="section__checkout">
+      <div class="section__checkout--shipping-container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section__checkout--shipping-container-header">
+              SHIPPING ADDRESS
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-          <label for="name">Full Name *</label>
-          <input type="text" id="name" required>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-          <label for="name">Country *</label>
-          <input type="text" id="country" placeholder="Choose from dropdown" required>
-          <div class="country-dropdown"></div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 hidden-xs hidden-sm hidden-md">&nbsp;</div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-          <label for="name">Address Line 1 *</label>
-          <input type="text" id="address1" required>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-          <label for="address1">Address Line 2 (optional) </label>
-          <input type="text" id="address2" required>
-
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 hidden-xs hidden-sm hidden-md">&nbsp;</div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-          <label for="zipcode">City *</label>
-          <input type="text" id="city" required>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-          <label for="zipcode">Postal Code *</label>
-          <input type="text" id="zipcode">
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 hidden-xs hidden-sm hidden-md">&nbsp;</div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-          <div class="state__container">
-            <label for="zipcode">State *</label>
-            <input type="text" id="state" placeholder="Required for US, CA, AU" required>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" required>
           </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 hidden-xs hidden-sm hidden-md">&nbsp;
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 hidden-xs hidden-sm hidden-md">&nbsp;</div>
-      </div>
-    </div>
-  </section>
-  <section class="section__payment">
-    <div class="section__payment--title">
-      PAYMENT INFO
-    </div>
-    <form method="post" action="/charge" id="payment-form">
-      <div class="form-row">
-        <label for="card-element">
-          Credit or debit card (secure checkout with Stripe
-          <span id="copyright">&trade;</span>&nbsp;)
-        </label>
-        <div id="card-element">
-          <!-- A Stripe Element will be inserted here. -->
-        </div>
-
-        <!-- Used to display form errors. -->
-        <div id="card-errors" role="alert"></div>
-      </div>
-      <div class="row">
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-          <div class="section__payment--total-box">
-            Total
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+            <label for="name">Country *</label>
+            <input type="text" id="country" placeholder="Choose from dropdown" required>
+            <div class="country-dropdown"></div>
           </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 hidden-xs hidden-sm hidden-md">&nbsp;</div>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-          <div class="section__payment--total-value">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+            <label for="name">Address Line 1 *</label>
+            <input type="text" id="address1" required>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+            <label for="address1">Address Line 2 (optional) </label>
+            <input type="text" id="address2" required>
 
           </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 hidden-xs hidden-sm hidden-md">&nbsp;</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+            <label for="zipcode">City *</label>
+            <input type="text" id="city" required>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+            <label for="zipcode">Postal Code *</label>
+            <input type="text" id="zipcode">
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 hidden-xs hidden-sm hidden-md">&nbsp;</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+            <div class="state__container">
+              <label for="zipcode">State *</label>
+              <input type="text" id="state" placeholder="Required for US, CA, AU" required>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 hidden-xs hidden-sm hidden-md">&nbsp;
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 hidden-xs hidden-sm hidden-md">&nbsp;</div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="section__payment--button">
-            <img src="/uploads/spinner.gif" alt="" id="spinner">
-            <button type="submit">Submit Payment &#8594;</button>
+    </section>
+    <section class="section__payment">
+      <div class="section__payment--title">
+        PAYMENT INFO
+      </div>
+      <form method="post" action="/charge" id="payment-form">
+        <div class="form-row">
+          <label for="card-element">
+            Credit or debit card (secure checkout with Stripe
+            <span id="copyright">&trade;</span>&nbsp;)
+          </label>
+          <div id="card-element">
+            <!-- A Stripe Element will be inserted here. -->
+          </div>
+
+          <!-- Used to display form errors. -->
+          <div id="card-errors" role="alert"></div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <div class="section__payment--total-box">
+              Total
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <div class="section__payment--total-value">
+
+            </div>
           </div>
         </div>
-      </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section__payment--button">
+              <img src="/uploads/spinner.gif" alt="" id="spinner">
+              <button type="submit">Submit Payment &#8594;</button>
+            </div>
+          </div>
+        </div>
 
-    </form>
-  </section>
+      </form>
+    </section>
+  </div>
+
   <footer class="footer">
     <div class="row">
       <div class="col-md-6">
